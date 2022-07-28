@@ -1,0 +1,16 @@
+<div class="card text-bg-light mb-3">
+    <div id="languages">
+        <div class="card-title">
+            <h2>{{languagesData.languagesHeader}}</h2>
+        </div>
+        <div class="card-body">
+           <ul class="list-group" id="langs">
+                <li class="list-group-item list-group-item-light" *ngFor="let language of languagesData.languagesInformation">
+                    <div class="list-info-languages">
+                        <h6 id="data-list-languages-lang">{{language.lang}}{{language.level}}</h6>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>        
+</div>

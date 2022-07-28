@@ -1,0 +1,18 @@
+<div class="card text-bg-light mb-3">
+    <div class="card-title">
+        <h2>{{education.educationHeader}}</h2>
+    </div>
+    <div class="card-body">
+        <ul class="list-group" id="education">
+            <li class="list-group-item list-group-item-light" *ngFor="let edu of education.educationInformation">
+                <div class="data-container">
+                    <div class="list-info-education">
+                        <h4 id="data-list-education-name">{{edu.name}}</h4>
+                        <h5 id="data-list-education-place">{{edu.place}}</h5>
+                        <h6> <span id="data-list-education-start">{{edu.start}}</span> - <span id="data-list-education-end">{{edu.end}}</span></h6>
+                    </div>
+                </div>
+            </li>
+        </ul>        
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="card text-bg-light mb-3">
+    <div class="card-title">
+        <h3>{{technologiesData.technologiesHeader}}</h3>
+    </div>
+    <div *ngFor="let tech of technologiesData.technologiesDetails">
+        <div class="card-title">
+            <h4>{{tech.title}}</h4>
+        </div>
+       <div class="card-body">
+            <ul class="list-group list-group-horizontal list-group-item-light">
+                <li class="list-group-item list-group-item-light" *ngFor="let techInfo of tech.technologiesInformation">
+                    <div>
+                        <a [href]="techInfo.href">
+                            <div>
+                                <div class="logo-image-container"><img [src]="techInfo.image" [alt]="techInfo.alt"></div>
+                                <div class="progress"><div class="progress-bar bg-success" role="progressbar" [style]="techInfo.width" aria-valuemin="0" aria-valuemax="100"></div></div>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>        
+    </div>     
+</div>

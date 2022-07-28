@@ -1,0 +1,29 @@
+<div class="card text-bg-light mb-3" id="first-card">
+    <div id="profile-background"><img [src]="myPortfolio.backgroundImage"></div>
+    <div id="info" style="padding: 16px;">
+        <div id="info-img"><img class="profile-image"  [src]="myPortfolio.profileImage" alt="photo_profile"></div><!--Data binding de properties-->
+        <div class="card-body" id="info-data">
+            <div class="info-header">
+                <h1>{{myPortfolio.name}}</h1>
+                <h3>{{myPortfolio.profession}}</h3>
+                <h6>{{myPortfolio.location}}</h6>
+                <br>
+                <div>
+                    <button id="contact" class="btn btn-outline-secondary" (click)="Onclick()">{{myPortfolio.contactHeader}}</button>       
+                </div>
+            </div>
+            <div id="info-actions"> 
+                <div id="contact-info" *ngIf="contactInfoView">
+                    <div class="card-title">
+                        <h5>{{myPortfolio.contactHeader}}</h5>
+                    </div>
+                    <div>    
+                        <ul id="info-details">
+                            <li *ngFor="let contactInfo of myPortfolio.contactInformation"><img [src]="contactInfo.image" [alt]="contactInfo.alt"><h6><a [href]="contactInfo.link" target="_blank">{{contactInfo.name}}</a></h6></li>
+                        </ul>
+                    </div>
+                </div>    
+            </div> 
+        </div>
+    </div>
+</div>
