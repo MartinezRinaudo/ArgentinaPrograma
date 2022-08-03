@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/Services/portfolio.service';
-import { ShowInfoContactService } from 'src/app/Services/show-info-contact.service';
+import { PortfolioService } from 'src/app/Services/portfolio/portfolio.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +10,7 @@ export class HeaderComponent implements OnInit {
   myPortfolio:any;
   contactInfoView:Boolean;
 
-  constructor(private dataPortfolio:PortfolioService, private showInfoContact:ShowInfoContactService) {
+  constructor(private dataPortfolio:PortfolioService) {
     this.contactInfoView = false;
    }
 
