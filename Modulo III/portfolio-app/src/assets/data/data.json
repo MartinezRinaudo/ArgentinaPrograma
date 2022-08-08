@@ -4,7 +4,6 @@
     "name":"Mariano Nicolas Martinez Rinaudo",
     "profession":"Java Fullstack Developer",
     "location":"Tandil, Buenos Aires (Argentina)",
-    "contactHeader":"Contact Information / Informacion de Contacto",
     "contactInformation": [
         {
             "image":"./assets/images/logo_linkedin.png",
@@ -26,7 +25,6 @@
         }
     ],
     "languages": {
-        "languagesHeader": "Languages / Idiomas: ",
         "languagesInformation": [
             {
                 "lang":"Spanish / Español: ",
@@ -39,13 +37,11 @@
         ]
     },
     "aboutme": {
-        "header":"About me / Acerca de",
         "bodyEnglish":"I'm Java fullstack developer. From the point of view of the backend side, I based my knowledge and skills on the OOP and web development with the best practices of programming. And from the frontend side, I've the basic experience to do a simple web page or a full web site. I've a proactive and results-oriented profile, I always try to learn as much as possible to do my work in the most efficient way and I can work in a team or the independently without any problem.",
         "bodySpanish":"Soy desarrollador Java fullstack. Desde el punto de vista del lado del backend, basé mis conocimientos y habilidades en programación orientada a objetos y desarrollo web con las mejores prácticas de programación. Y desde el lado de la interfaz, tengo la experiencia básica para hacer una página web simple o un sitio web completo.<br> Tengo un perfil proactivo y orientado a resultados, siempre trato de aprender lo más posible para hacer mi trabajo de la manera más eficiente. Puedo trabajar en equipo o de forma independiente sin ningún problema."
     },
     
     "experience": {
-        "experienceHeader":"Experience / Experiencia",
         "experienceInformation": [
             {
                 "job":"Java Developer",
@@ -58,7 +54,6 @@
         ]
     },
     "education": {
-        "educationHeader":"Education / Educación",
         "educationInformation":[
             {
                 "name":"Java Fullstack Developer Jr",
@@ -75,7 +70,6 @@
         ] 
     },
     "technologies": {
-        "technologiesHeader":"Technologies / Tecnologias",
         "technologiesDetails": [
             {
                 "title":"Backend:",
@@ -208,7 +202,6 @@
         ]
     },
     "projects": {
-        "projectsHeader":"Projects / Proyectos",
         "projectsInformation": [
             {
                 "name":"Portfolio Argentina Programa",

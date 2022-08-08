@@ -10,17 +10,19 @@ import { SecurityService } from 'src/app/Services/security/security.service';
 })
 export class SignupComponent implements OnInit {
 
-  email:String = "";
-  password:String = "";
+  email : string = "";
+  password : string = "";
 
   constructor(private loginService:LoginService, private router : Router, private security : SecurityService) {}
 
   ngOnInit(): void {
   }
+
   RegisterUser() {
     const user = {email:this.email, password:this.password};
     this.loginService.registerUser(user).subscribe(data => {
       this.security.setToken(data.token);
+      this.security.setUsername(this.email);
       this.router.navigateByUrl("/portfolio");
     });
   }

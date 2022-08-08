@@ -1,7 +1,8 @@
 <div class="card text-bg-light mb-3">    
     <div id="experience">
         <div class="card-title">
-            <h2>{{experienceData.experienceHeader}}</h2>
+            <h2>Experience / Experiencia</h2>
+            <div id="agregate-btn-experience" *ngIf="btnEdition"><i class="fa fa-plus"></i></div>
         </div>
         <div class="card-body">    
             <ul class="list-group" id="jobs">
@@ -14,6 +15,10 @@
                             <h6 id="data-list-experience-type">{{exp.type}}</h6>
                             <p id="data-list-experience-skills">{{exp.skills}}</p>
                         </div>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
+                        <div id="edit-btn-experience"><i class="fa fa-pen me-md-2"></i></div>
+                        <div id="remove-btn-experience"><i class="fa fa-trash"></i></div>
                     </div>
                 </li>
             </ul> 
