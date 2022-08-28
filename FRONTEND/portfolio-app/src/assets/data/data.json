@@ -1,0 +1,210 @@
+{
+    "profileImage":"./assets/images/profile.jpg",
+    "name":"Mariano Nicolas Martinez Rinaudo",
+    "profession":"Java Fullstack Developer",
+    "location":"Tandil, Buenos Aires (Argentina)",
+    "contactInformation": [
+        {
+            "image":"./assets/images/logo_linkedin.png",
+            "alt":"Linkedin",
+            "link":"https://www.linkedin.com/in/mariano-nicolas-martinez-rinaudo-8822a2211/",
+            "name":"LinkedIn: Mariano Martinez Rinaudo"
+        },
+        {
+            "image":"./assets/images/logo2_github.png",
+            "alt":"Github",
+            "link":"https://github.com/MartinezRinaudo",
+            "name":"GitHub: MartinezRinaudo"
+        },
+        {
+            "image":"./assets/images/logo_email.png",
+            "alt":"Email",
+            "link":"#",
+            "name":"Email: martinezrinaudo@outlook.com"
+        }
+    ],
+    "languages": [
+            {
+                "name":"Spanish / Español: ",
+                "level": "Native - Nativo"
+            },
+            {
+                "name":"English / Inglés: ",
+                "level": "Intermediate - Intermediate"
+            }
+    ],
+    "aboutme": {
+        "bodyEnglish":"I'm Java fullstack developer. From the point of view of the backend side, I based my knowledge and skills on the OOP and web development with the best practices of programming. And from the frontend side, I've the basic experience to do a simple web page or a full web site. I've a proactive and results-oriented profile, I always try to learn as much as possible to do my work in the most efficient way and I can work in a team or the independently without any problem.",
+        "bodySpanish":"Soy desarrollador Java fullstack. Desde el punto de vista del lado del backend, basé mis conocimientos y habilidades en programación orientada a objetos y desarrollo web con las mejores prácticas de programación. Y desde el lado de la interfaz, tengo la experiencia básica para hacer una página web simple o un sitio web completo. Tengo un perfil proactivo y orientado a resultados, siempre trato de aprender lo más posible para hacer mi trabajo de la manera más eficiente. Puedo trabajar en equipo o de forma independiente sin ningún problema."
+    },
+
+    "experience": [
+            {
+                "job":"Java Developer",
+                "place":"Alkemy",
+                "start":"13/06/2022",
+                "end":"27/07/2022",
+                "type":"Remote / Remoto",
+                "skills":"Soft skills and agile methologies"
+            }
+    ],
+    "education":[
+            {
+                "name":"Java Fullstack Developer Jr",
+                "place":"Argentina Programa",
+                "start":"01/02/2022",
+                "end":"30/08/2022"
+            },
+            {
+                "name":"Java Fullstack Developer Engineer",
+                "place":"Educacion IT",
+                "start":"01/04/2021",
+                "end":"30/04/2022"
+            }
+    ],
+    "technologies": [
+            {
+                "title":"Backend:",
+                "technologiesInformation": [
+                    {
+                        "image":"./assets/images/logo_Java.jpg",
+                        "alt":"Java",
+                        "href":"#",
+                        "width":"width: 70%",
+                        "aria":70
+                    },
+                    {
+                        "image":"./assets/images/logo_spring.png",
+                        "alt":"Spring",
+                        "href":"#",
+                        "width":"width: 50%",
+                        "aria":50
+                    },
+                    {
+                        "image":"./assets/images/logo_hibernate.jpg",
+                        "alt":"Hibernate",
+                        "href":"#",
+                        "width":"width: 60%",
+                        "aria":60
+                    },
+                    {
+                        "image":"./assets/images/logo_mysql.png",
+                        "alt":"MySQL",
+                        "href":"#",
+                        "width":"width: 80%",
+                        "aria":80
+                    },
+                    {
+                        "image":"./assets/images/logo_jwt.png",
+                        "alt":"JWT",
+                        "href":"#",
+                        "width":"width: 80%",
+                        "aria":80
+                    },
+                    {
+                        "image":"./assets/images/logo_swagger.png",
+                        "alt":"Swagger",
+                        "href":"#",
+                        "width":"width: 80%",
+                        "aria":80
+                    }
+                ]
+            },
+            {
+                "title":"frontend",
+                "technologiesInformation":[
+                    {
+                        "image":"./assets/images/logo_html.png",
+                        "alt":"HTML",
+                        "href":"#",
+                        "width":"width: 90%",
+                        "aria":90
+                    },
+                    {
+                        "image":"./assets/images/logo_css.png",
+                        "alt":"CSS",
+                        "href":"#",
+                        "width":"width: 90%",
+                        "aria":90
+                    },
+                    {
+                        "image":"./assets/images/logo_Javascript.png",
+                        "alt":"Javascript",
+                        "href":"#",
+                        "width":"width: 80%",
+                        "aria":80
+                    },
+                    {
+                        "image":"./assets/images/logo_Bootstrap.png",
+                        "alt":"Bootstrap",
+                        "href":"#",
+                        "width":"width: 80%",
+                        "aria":80
+                    },
+                    {
+                        "image":"./assets/images/logo_react.png",
+                        "alt":"React",
+                        "href":"#",
+                        "width":"width: 30%",
+                        "aria":30
+                    },
+                    {
+                        "image":"./assets/images/logo_angular.png",
+                        "alt":"Angular",
+                        "href":"#",
+                        "width":"width: 30%",
+                        "aria":30
+                    }
+
+                ]
+            },
+            {
+                "title":"Others/Otros",
+                "technologiesInformation": [
+                    {
+                        "image":"./assets/images/logo_git.png",
+                        "alt":"Git",
+                        "href":"#",
+                        "width":"width: 70%",
+                        "aria":70
+                    },
+                    {
+                        "image":"./assets/images/logo_Github.png",
+                        "alt":"Github",
+                        "href":"#",
+                        "width":"width: 80%",
+                        "aria":80
+                    },
+                    {
+                        "image":"./assets/images/logo_docker.png",
+                        "alt":"Docker",
+                        "href":"#",
+                        "width":"width: 30%",
+                        "aria":30
+                    },
+                    {
+                        "image":"./assets/images/logo_jenkins.png",
+                        "alt":"Jenkins",
+                        "href":"#",
+                        "width":"width: 40%",
+                        "aria":40
+                    }
+                ]
+            }
+        ]
+    ,
+    "projects": [
+            {
+                "name":"Portfolio Argentina Programa",
+                 "place":"ARGENTINA PROGRAMA",
+                "descriptionEnglish":"Portfolio showing the developer's profile to the user. In the backend development, the information is provided through the interaction of java with mysql, to be used through the angular framework to finally return it.",
+                "descriptionSpanish":"Portafolio mostrando el perfil del desarrollador al usuario. En el desarrollo del backend, la información se proporciona a través de la interacción de java con mysql, para ser utilizada a través del marco angular para finalmente devolverla."
+            },
+            {
+                "name":"ONG Project",
+                "place":"ALKEMY",
+                "descriptionEnglish":"Development of a restful application for a fictitious NGO in Java language. The application has a variety of enpoints and its CRUD methods, incorporating libraries such as jwt, swagger, sendgrid and amazon S3. The team work methodology was based on the scrum principles.",
+                "descriptionSpanish":"Desarrollo de una aplicacion restful para una ONG ficticia en lenguaje Java. La aplicación cuenta con una variedad de enpoints y sus metodos CRUD, incorporación  de librerias como jwt, swagger, sendgrid y amazon S3. La metodologia de trabajo de equipo fue basada en los principios scrum."
+            }
+    ]
+}

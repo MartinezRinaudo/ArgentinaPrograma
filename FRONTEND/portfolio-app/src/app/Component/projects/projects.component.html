@@ -1,0 +1,27 @@
+<div class="card text-bg-light mb-3">
+    <div class="card-title">
+        <h2>Projects / Proyectos</h2>
+        <div id="agregate-btn-projects" *ngIf="btnEdition"><i class="fa fa-plus"></i></div>
+    </div>
+    <div class="card-body">
+        <ul class="list-group" id="projects">
+            <li class="list-group-item list-group-item-light"*ngFor="let project of projectsData.projects">
+                <div class="data-container">
+                    <div class="list-info-project">
+                        <div class="project-name">
+                            <h5 id="data-list-project-name">{{project.name}}</h5>
+                            <h6 id="data-list-project-place">{{project.place}}</h6>    
+                        </div>
+                        <div class="project-details">
+                            <p id="data-list-project-description">{{project.descriptionEnglish}}<br><br>{{project.descriptionSpanish}}</p>
+                        </div>
+                    </div>  
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
+                    <div id="edit-btn-project"><i class="fa fa-pen me-md-2"></i></div>
+                    <div id="remove-btn-project"><i class="fa fa-trash"></i></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

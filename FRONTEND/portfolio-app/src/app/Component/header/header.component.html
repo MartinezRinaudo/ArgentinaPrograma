@@ -1,0 +1,37 @@
+<div class="card text-bg-light mb-3" id="first-card">
+    <div id="profile-background"><img src="./assets/images/background.jpg"></div>
+    <div id="info" style="padding: 16px;">
+        <div id="info-img"><img class="profile-image"  [src]="myPortfolio.profileImage" alt="photo_profile"></div>
+        <div class="card-body" id="info-data">
+            <div class="info-header">
+                <h1>{{myPortfolio.name}}</h1> 
+                <h3>{{myPortfolio.profession}}</h3>
+                <h6>{{myPortfolio.location}}</h6>
+                <br>
+                <div>
+                    <button id="contact" class="btn btn-outline-secondary" (click)="Onclick()">Contact Information / Informacion de Contacto</button>       
+                </div>
+            </div>
+            <div id="edit-btn-header" *ngIf="btnEdition"><i class="fa fa-pen me-md-2"></i></div>
+            <div id="info-actions"> 
+                <div id="contact-info" *ngIf="contactInfoView">
+                    <div class="card-title">
+                        <h5>Contact / Contacto:</h5>
+                        <div id="agregate-btn-contact" *ngIf="btnEdition"><i class="fa fa-plus"></i></div>                    </div>
+                    <div>    
+                        <ul id="info-details">
+                            <li *ngFor="let contactInfo of myPortfolio.contactInformation">
+                                <img [src]="contactInfo.image" [alt]="contactInfo.alt">
+                                <h6><a [href]="contactInfo.link" target="_blank">{{contactInfo.name}}</a></h6>
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
+                                    <div id="edit-btn-contact"><i class="fa fa-pen me-md-2"></i></div>
+                                    <div id="remove-btn-contact"><i class="fa fa-trash"></i></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>    
+            </div> 
+        </div>
+    </div>
+</div>

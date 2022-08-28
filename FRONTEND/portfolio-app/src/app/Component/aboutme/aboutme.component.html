@@ -1,0 +1,12 @@
+<div class="card text-bg-light mb-3">
+    <div class="card-title"><h2>About me / Acerca de</h2></div>
+    <div class="card-body">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
+            <div id="edit-btn-aboutme"><i class="fa fa-pen me-md-2"></i></div>
+            <div id="remove-btn-aboutme"><i class="fa fa-trash"></i></div>
+        </div>
+        <div id="text-aboutme">
+            <p>{{aboutme.bodyEnglish}}<br><br>{{aboutme.bodySpanish}}</p>
+        </div>
+    </div>
+</div>

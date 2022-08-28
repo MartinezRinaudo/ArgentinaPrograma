@@ -1,0 +1,147 @@
+
+a {
+    text-decoration: none;
+}
+.text-bg-light {
+    border-radius: 20px;
+    margin: 10px 10px;
+    padding: 5px;
+    border-color: darkblue;
+}
+
+.text-bg-light#first-card {
+    padding: 10px;
+}
+
+#banner {
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+}
+
+div#profile-background {
+    display: flex;
+    /*z-index: 1;*/
+}    
+
+div#profile-background img {
+    width: 100%;
+    height: 250px;
+    border-radius: 32px 32px 0 0;
+}
+
+.info-img {
+    padding: 0;
+}
+
+.profile-image {
+    border-radius: 30%;
+    width: 190px;
+    height: 200px;
+    margin-top: -100px;
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+
+
+div#info-actions {
+    margin-left: 10px;
+    margin-right: 8px;
+}
+
+div#info-contact span {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+div#info-contact span a {
+    color: blue;
+    touch-action: manipulation;
+    text-decoration: none;
+}
+
+div#info-data {
+    display: flex;
+    justify-content: space-between;
+}
+
+div#info-actions ul#info-details li{
+    display: flex;
+    width: 400px;
+    list-style: none;
+    flex-shrink: 0;
+}
+
+div#info-actions ul#info-details li a {
+    display: flex;
+    margin-right: 10px;
+    color: black;
+}
+
+div#info-actions ul#info-details li img {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+ul.list-group {
+    list-style: none inside;
+}
+
+ul.list-group li {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+ul.list-group li div.data-container {
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    
+}
+
+ul.list-group li div.data-container a {
+    display: flex;
+    color: black;
+}
+
+.list-info {
+    width: 1000px;
+}
+
+.logo-image-container img {
+    border-radius: 30%;
+    width: 150px;
+    height: 80px;
+}
+
+.card-body ul li {
+    margin: 10px;
+}
+
+#text-aboutme {
+    background-color: white;
+    padding: 20px;
+    text-align: justify;
+    font-size: 1rem;
+}
+
+.card-title {
+    padding: 15px;
+    margin-left: 3px;
+    text-shadow: 1px 1px black;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    width: 1150px;
+    
+}
+
+#addInput {
+    margin-left: 500px;
+}
+

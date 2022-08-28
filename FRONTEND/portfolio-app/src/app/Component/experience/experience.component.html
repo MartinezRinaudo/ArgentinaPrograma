@@ -1,0 +1,27 @@
+<div class="card text-bg-light mb-3">    
+    <div id="experience">
+        <div class="card-title">
+            <h2>Experience / Experiencia</h2>
+            <div id="agregate-btn-experience" *ngIf="btnEdition"><i class="fa fa-plus"></i></div>
+        </div>
+        <div class="card-body">    
+            <ul class="list-group" id="jobs">
+                <li class="list-group-item list-group-item-light" *ngFor="let exp of experienceData.experience">
+                    <div class="data-container">
+                        <div class="list-info-experience">
+                            <h4 id="data-list-experience-job">{{exp.job}}</h4>
+                            <h5 id="data-list-experience-place">{{exp.place}}</h5>
+                            <h6> <span id="data-list-experience-start">{{exp.start}}</span> - <span id="data-list-experience-end-1">{{exp.end}}</span></h6>
+                            <h6 id="data-list-experience-type">{{exp.type}}</h6>
+                            <p id="data-list-experience-skills">{{exp.skills}}</p>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
+                        <div id="edit-btn-experience"><i class="fa fa-pen me-md-2"></i></div>
+                        <div id="remove-btn-experience"><i class="fa fa-trash"></i></div>
+                    </div>
+                </li>
+            </ul> 
+        </div>
+    </div>
+</div>
