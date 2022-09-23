@@ -11,9 +11,11 @@ export class EducationComponent implements OnInit {
 
   education:any;
   btnEdition : boolean; 
+  btnAdd : boolean;
 
   constructor(private dataPortfolio:PortfolioService, private edition:EditionService) { 
     this.btnEdition = this.edition.btnsEdition;
+    this.btnAdd = this.edition.btnsAdd;
   }
 
   ngOnInit(): void {
@@ -21,6 +23,31 @@ export class EducationComponent implements OnInit {
       this.education = data.education;
     });
     this.btnEdition = this.edition.showBtnsEdition();
+  }
+
+  addItem() {
+    if(this.btnAdd == false) {
+      this.btnAdd = true;
+    } else {
+      this.btnAdd = false;
+    }    
+  }
+
+  saveChanges() {
+    /*SIN CONEXION CON EL BACKEND*/
+    let name = (<HTMLInputElement>document.getElementById("name-education")).value;
+    let place = (<HTMLInputElement>document.getElementById("place-education")).value;
+    let startDate = (<HTMLInputElement>document.getElementById("start-date-education")).value;
+    let endDate = (<HTMLInputElement>document.getElementById("end-date-education")).value;
+    
+    let newEdu = {
+      "name":name, 
+      "place":place, 
+      "start":startDate,
+      "end":endDate,
+    }
+    this.education.unshift(newEdu);
+    this.btnAdd = false;
   }
 
 }

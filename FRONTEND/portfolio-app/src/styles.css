@@ -136,12 +136,24 @@ ul.list-group li div.data-container a {
     justify-content: space-between;
 }
 
+#addItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    position: fixed;
+    z-index: 999; 
+    width: 1200px;
+    height: 500px;
+    margin: auto;
+    border-color: grey;
+}
+
 input {
-    width: 1150px;
-    
+    width: 1000px;
+    padding: 5px;
+    margin: 15px;
 }
-
-#addInput {
-    margin-left: 500px;
-}
-

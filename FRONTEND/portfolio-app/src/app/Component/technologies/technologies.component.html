@@ -2,14 +2,14 @@
     <div class="card-title">
         <h3>Technologies / Tecnologias</h3>
     </div>
-    <div *ngFor="let tech of technologiesData.technologiesDetails">
+    <div *ngFor="let tech of technologiesData">
         <div class="card-title">
             <h4>{{tech.title}}</h4>
             <div id="agregate-btn-skills" *ngIf="btnEdition"><i class="fa fa-plus"></i></div>
         </div>
        <div class="card-body">
             <ul class="list-group list-group-horizontal list-group-item-light">
-                <li class="list-group-item list-group-item-light" *ngFor="let techInfo of tech.technologies">
+                <li class="list-group-item list-group-item-light" *ngFor="let techInfo of tech.technologiesInformation">
                     <div>
                         <a [href]="techInfo.href">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">

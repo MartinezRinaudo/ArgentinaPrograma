@@ -19,6 +19,7 @@ export class TechnologiesComponent implements OnInit {
   ngOnInit(): void {
     this.dataPortfolio.getData().subscribe(data => {
       this.technologiesData = data.technologies;
+      console.log(data.technologies);
     });
     this.btnEdition = this.edition.showBtnsEdition();
   }

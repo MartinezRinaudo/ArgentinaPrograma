@@ -195,12 +195,15 @@
     ,
     "projects": [
             {
+                "id":1,
                 "name":"Portfolio Argentina Programa",
                  "place":"ARGENTINA PROGRAMA",
                 "descriptionEnglish":"Portfolio showing the developer's profile to the user. In the backend development, the information is provided through the interaction of java with mysql, to be used through the angular framework to finally return it.",
                 "descriptionSpanish":"Portafolio mostrando el perfil del desarrollador al usuario. En el desarrollo del backend, la información se proporciona a través de la interacción de java con mysql, para ser utilizada a través del marco angular para finalmente devolverla."
             },
             {
+                
+                "id":2,
                 "name":"ONG Project",
                 "place":"ALKEMY",
                 "descriptionEnglish":"Development of a restful application for a fictitious NGO in Java language. The application has a variety of enpoints and its CRUD methods, incorporating libraries such as jwt, swagger, sendgrid and amazon S3. The team work methodology was based on the scrum principles.",

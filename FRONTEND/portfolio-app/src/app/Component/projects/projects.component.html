@@ -1,25 +1,46 @@
 <div class="card text-bg-light mb-3">
     <div class="card-title">
         <h2>Projects / Proyectos</h2>
-        <div id="agregate-btn-projects" *ngIf="btnEdition"><i class="fa fa-plus"></i></div>
+        <div id="agregate-btn-projects" *ngIf="btnEdition"><i class="fa fa-plus" (click)="addItem()"></i></div>
     </div>
     <div class="card-body">
         <ul class="list-group" id="projects">
-            <li class="list-group-item list-group-item-light"*ngFor="let project of projectsData.projects">
+            <li class="list-group-item list-group-item-light"*ngFor="let project of projectsData"  id="to-edit-{{project.id}}">
                 <div class="data-container">
                     <div class="list-info-project">
                         <div class="project-name">
-                            <h5 id="data-list-project-name">{{project.name}}</h5>
-                            <h6 id="data-list-project-place">{{project.place}}</h6>    
+                            <h5 id="data-list-project-name-{{project.id}}">{{project.name}}</h5>
+                            <h6 id="data-list-project-place-{{project.id}}">{{project.place}}</h6>    
                         </div>
                         <div class="project-details">
-                            <p id="data-list-project-description">{{project.descriptionEnglish}}<br><br>{{project.descriptionSpanish}}</p>
+                            <p id="data-list-project-description-en-{{project.id}}">{{project.descriptionEnglish}}</p>
+                            <p id="data-list-project-description-es-{{project.id}}">{{project.descriptionSpanish}}</p>
                         </div>
                     </div>  
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
-                    <div id="edit-btn-project"><i class="fa fa-pen me-md-2"></i></div>
+                    <div id="edit-btn-project"><i class="fa fa-pen me-md-2" id="{{project.id}}" (click)="editItem($event)" ></i></div>
                     <div id="remove-btn-project"><i class="fa fa-trash"></i></div>
+                </div>
+            </li>
+            <li class="list-group-item list-group-item-light" id="addItem" *ngIf="btnAdd"  >
+                <div class="data-container">
+                    <div class="list-info-project">
+                        <h5>Complete the project information:</h5>
+                        <br>
+                        <div class="project-name">
+                            <h5 id="data-list-project-name">Name: <input type="text" placeholder="name" id="name-project"></h5>
+                            <h6 id="data-list-project-place">Place: <input type="text" placeholder="place" id="place-project"></h6>    
+                        </div>
+                        <div class="project-details">
+                            <div id="data-list-project-description">
+                                <h6>English description: <input type="text" placeholder="english description" id="english-description-project"></h6>
+                                <h6>Spanish description: <input type="text" placeholder="spanish description" id="spanish-description-project"></h6>
+                            </div>
+                            <button class="btn btn-secondary" (click)="saveChanges()">Save changes</button>
+                            <button class="btn btn-terciary" (click)="addItem()">Cancel</button>       
+                        </div>
+                    </div>  
                 </div>
             </li>
         </ul>

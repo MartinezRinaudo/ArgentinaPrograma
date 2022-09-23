@@ -2,11 +2,11 @@
     <div id="experience">
         <div class="card-title">
             <h2>Experience / Experiencia</h2>
-            <div id="agregate-btn-experience" *ngIf="btnEdition"><i class="fa fa-plus"></i></div>
+            <div id="agregate-btn-experience" *ngIf="btnEdition"><i class="fa fa-plus" (click)="addItem()"></i></div>
         </div>
         <div class="card-body">    
             <ul class="list-group" id="jobs">
-                <li class="list-group-item list-group-item-light" *ngFor="let exp of experienceData.experience">
+                <li class="list-group-item list-group-item-light" *ngFor="let exp of experienceData">
                     <div class="data-container">
                         <div class="list-info-experience">
                             <h4 id="data-list-experience-job">{{exp.job}}</h4>
@@ -19,6 +19,24 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
                         <div id="edit-btn-experience"><i class="fa fa-pen me-md-2"></i></div>
                         <div id="remove-btn-experience"><i class="fa fa-trash"></i></div>
+                    </div>
+                </li>
+                <li class="list-group-item list-group-item-light" id="addItem" *ngIf="btnAdd">
+                    <div class="data-container">
+                        <div class="list-info-experience">
+                            <h5>Complete the experience information:</h5>
+                            <br>
+                            <div class="experience-name">
+                                <h5 id="data-list-experience-name">Job: <input type="text" placeholder="job" id="job-experience"></h5>
+                                <h6 id="data-list-experience-place">Place: <input type="text" placeholder="place" id="place-experience"></h6>    
+                                <h6 id="data-list-experience-place">Start date: <input type="date" placeholder="start date" id="start-date-experience"></h6>
+                                <h6 id="data-list-experience-place">End date: <input type="date" placeholder="end date" id="end-date-experience"></h6>
+                                <h6 id="data-list-experience-place">Type of job: <input type="text" placeholder="type of job" id="job-type-experience"></h6>
+                                <h6 id="data-list-experience-place">Skills: <input type="text" placeholder="skills" id="skills-experience"></h6>
+                                <button class="btn btn-secondary" (click)="saveChanges()">Save changes</button>
+                                <button class="btn btn-terciary" (click)="addItem()">Cancel</button>       
+                            </div>
+                        </div>  
                     </div>
                 </li>
             </ul> 

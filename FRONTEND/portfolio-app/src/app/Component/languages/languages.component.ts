@@ -10,9 +10,11 @@ import { PortfolioService } from 'src/app/Services/portfolio/portfolio.service';
 export class LanguagesComponent implements OnInit {
   languagesData : any;
   btnEdition : boolean;
+  btnAdd : boolean;
 
   constructor(private dataPortfolio:PortfolioService, private edition:EditionService) {
     this.btnEdition = this.edition.btnsEdition;
+    this.btnAdd = this.edition.btnsAdd;
   }
 
   ngOnInit(): void {
@@ -22,4 +24,23 @@ export class LanguagesComponent implements OnInit {
     this.btnEdition = this.edition.showBtnsEdition();
   }
 
+  addItem() {
+    if(this.btnAdd == false) {
+      this.btnAdd = true;
+    } else {
+      this.btnAdd = false;
+    }    
+  }
+
+  saveChanges() {
+    /*SIN CONEXION CON EL BACKEND*/
+    let name = (<HTMLInputElement>document.getElementById("name-language")).value;
+    let level = (<HTMLInputElement>document.getElementById("level-language")).value;
+    let newLanguage = {
+      "name":name, 
+      "level":level    
+    }
+    this.languagesData.unshift(newLanguage);
+    this.btnAdd = false;
+  }
 }

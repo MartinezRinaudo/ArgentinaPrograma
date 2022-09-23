@@ -17,7 +17,7 @@
                 <div id="contact-info" *ngIf="contactInfoView">
                     <div class="card-title">
                         <h5>Contact / Contacto:</h5>
-                        <div id="agregate-btn-contact" *ngIf="btnEdition"><i class="fa fa-plus"></i></div>                    </div>
+                        <div id="agregate-btn-contact" *ngIf="btnEdition"><i class="fa fa-plus" (click)="addItem()"></i></div>                    </div>
                     <div>    
                         <ul id="info-details">
                             <li *ngFor="let contactInfo of myPortfolio.contactInformation">
@@ -26,6 +26,23 @@
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
                                     <div id="edit-btn-contact"><i class="fa fa-pen me-md-2"></i></div>
                                     <div id="remove-btn-contact"><i class="fa fa-trash"></i></div>
+                                </div>
+                            </li>
+                            <li class="list-group-item list-group-item-light" id="addItem" *ngIf="btnAdd" style="width: auto;">
+                                <div class="data-container">
+                                    <div class="list-info">
+                                        <h5>Complete the contact information:</h5>
+                                        <br>
+                                        <div class="info-details">
+                                            <div id="data-list-info-description">
+                                                <h6>Name: <input type="text" placeholder="contact name" id="name-contact"></h6>
+                                                <h6>Link: <input type="text" placeholder="contact link" id="link-contact"></h6>
+                                                <h6>Image: <input type="file" placeholder="contact image" accept="image/*" id="image-contact" (change)="openFile($event)"></h6>
+                                            </div>
+                                            <button class="btn btn-secondary" (click)="saveChanges()">Save changes</button>
+                                            <button class="btn btn-terciary" (click)="addItem()">Cancel</button>    
+                                        </div>
+                                    </div>  
                                 </div>
                             </li>
                         </ul>

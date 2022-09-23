@@ -7,6 +7,7 @@ import { SecurityService } from '../security/security.service';
 })
 export class EditionService {
   btnsEdition : boolean = false;
+  btnsAdd : boolean = false;
 
   constructor(private security : SecurityService) {
     
@@ -19,4 +20,5 @@ export class EditionService {
       return false;
     }
   }
+
 }
