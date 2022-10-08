@@ -26,7 +26,7 @@ public class ProfileMapper {
                 .languages(toLanguagesList(profileRequest.getLanguages()))
                 .experience(toExperienceList(profileRequest.getExperience()))
                 .education(toEducationList(profileRequest.getEducation()))
-                .technologies(toTechnologyList(profileRequest.getTechnologies()))
+                .technologies(toTechnologiesFullList(profileRequest.getTechnologies()))
                 .projects(toProjectList(profileRequest.getProjects()))
                 .build();
     }
@@ -94,11 +94,21 @@ public class ProfileMapper {
         return educationList;
     }
 
+    public Set<TechnologiesList> toTechnologiesFullList(Set<TechListRequest> technologiesRequestList){
+        Set<TechnologiesList> technologiesList = new HashSet<>();
+        technologiesRequestList.forEach(t -> {
+            var tech= TechnologiesList.builder()
+                    .category(returnCategory(t).getTechCategory())
+                    .technologiesList(toTechnologyList(t.getTechnologyRequestSet()))
+                    .build();
+            technologiesList.add(tech);
+        });
+        return technologiesList;
+    }
     public Set<Technology> toTechnologyList(Set<TechnologyRequest> technologiesRequestList){
         Set<Technology> technologyList = new HashSet<>();
         technologiesRequestList.forEach(t -> {
             var tech= Technology.builder()
-                    .category(returnCategory(t).getTechCategory())
                     .imageUrl(t.getImageUrl())
                     .imageName(t.getImageName())
                     .percentage(t.getPercentage())
@@ -108,7 +118,7 @@ public class ProfileMapper {
         return technologyList;
     }
 
-    private TechCategory returnCategory(TechnologyRequest tech) {
+    private TechCategory returnCategory(TechListRequest tech) {
         if (tech.getCategory().toString().toUpperCase().equalsIgnoreCase(TechCategory.BACKEND.toString())) {
             return TechCategory.BACKEND;
         }
@@ -133,7 +143,6 @@ public class ProfileMapper {
         return projectsList;
     }
 
-
     public ProfileResponse toProfileResponse(Profile profile) {
        return ProfileResponse.builder()
                 .email(profile.getEmail())
@@ -146,7 +155,7 @@ public class ProfileMapper {
                 .aboutMe(toAboutMeResponse(profile.getAboutMe()))
                 .experience(toExperienceResponseList(profile.getExperience()))
                 .education(toEducationResponseList(profile.getEducation()))
-                .technologies(toTechnologyResponseList(profile.getTechnologies()))
+                .technologies(toTechnologiesResponseList((profile.getTechnologies())))
                 .projects(toProjectResponseList(profile.getProjects()))
                 .build();
     }
@@ -215,11 +224,22 @@ public class ProfileMapper {
         return educationResponseList;
     }
 
+    public Set<TechListResponse> toTechnologiesResponseList(Set<TechnologiesList> technologiesList){
+        Set<TechListResponse> technologiesResponseList = new HashSet<>();
+        technologiesList.forEach(t -> {
+            var tech= TechListResponse.builder()
+                    .category(returnCategory(t).getTechCategory())
+                    .technologyList(toTechnologyResponseList(t.getTechnologiesList()))
+                    .build();
+            technologiesResponseList.add(tech);
+        });
+        return technologiesResponseList;
+    }
+
     public Set<TechnologyResponse> toTechnologyResponseList(Set<Technology> technologiesList){
         Set<TechnologyResponse> technologyResponseList = new HashSet<>();
         technologiesList.forEach(t -> {
             var tech= TechnologyResponse.builder()
-                    .category(returnCategory(t).getTechCategory())
                     .imageUrl(t.getImageUrl())
                     .imageName(t.getImageName())
                     .percentage(t.getPercentage())
@@ -229,7 +249,7 @@ public class ProfileMapper {
         return technologyResponseList;
     }
 
-    private TechCategory returnCategory(Technology tech) {
+    private TechCategory returnCategory(TechnologiesList tech) {
         if (tech.getCategory().toString().toUpperCase().equalsIgnoreCase(TechCategory.BACKEND.toString())) {
             return TechCategory.BACKEND;
         }
@@ -265,7 +285,7 @@ public class ProfileMapper {
         profile.setAboutMe(toAboutMe(profileReq.getAboutMe()));
         profile.setEducation(toEducationList(profileReq.getEducation()));
         profile.setExperience(toExperienceList(profileReq.getExperience()));
-        profile.setTechnologies(toTechnologyList(profileReq.getTechnologies()));
+        profile.setTechnologies(toTechnologiesFullList(profileReq.getTechnologies()));
         profile.setProjects(toProjectList(profileReq.getProjects()));
 
         return profile;
@@ -303,7 +323,7 @@ public class ProfileMapper {
                     profile.setExperience(toExperienceList(profileReq.getExperience()));
                 break;
                 case "TECHNOLOGY":
-                    profile.setTechnologies(toTechnologyList(profileReq.getTechnologies()));
+                    profile.setTechnologies(toTechnologiesFullList(profileReq.getTechnologies()));
                 break;
                 case "PROJECT":
                     profile.setProjects(toProjectList(profileReq.getProjects()));

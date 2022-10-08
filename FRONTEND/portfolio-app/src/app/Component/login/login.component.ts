@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   SignIn() {
     const user = {email:this.email, password:this.password};
     this.loginService.loginUser(user).subscribe(data => {
+      console.log(data.token)
       this.security.setToken(data.token);
       this.security.setUsername(this.email);
       this.router.navigateByUrl("/portfolio");

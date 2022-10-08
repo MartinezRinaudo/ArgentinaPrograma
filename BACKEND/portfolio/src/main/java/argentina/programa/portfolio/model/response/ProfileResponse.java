@@ -21,6 +21,6 @@ public class ProfileResponse {
     private AboutMeResponse aboutMe;
     private Set<ExperienceResponse> experience;
     private Set<EducationResponse> education;
-    private Set<TechnologyResponse> technologies;
+    private Set<TechListResponse> technologies;
     private Set<ProjectResponse> projects;
 }

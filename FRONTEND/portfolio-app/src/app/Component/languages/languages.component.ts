@@ -18,7 +18,7 @@ export class LanguagesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataPortfolio.getData().subscribe(data => {
+    this.dataPortfolio.getData(1).subscribe(data => {
       this.languagesData = data.languages;
     });
     this.btnEdition = this.edition.showBtnsEdition();

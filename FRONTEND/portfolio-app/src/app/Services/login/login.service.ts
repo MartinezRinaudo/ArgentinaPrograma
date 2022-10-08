@@ -8,19 +8,12 @@ import { Observable } from 'rxjs';
 export class LoginService {
 
   constructor(private http:HttpClient) { }
-  /* Falta api backend propia */
 
-  /*
-    USERNAME: george.bluth@reqres.in 
-    PASSWORD: anything
-  */
- 
   loginUser(user:any):Observable<any> {
-    return this.http.post<any>('https://reqres.in/api/login', user);
+    return this.http.post<any>('http://localhost:8080/auth/login', user);
   }
-
   
   registerUser(user:any):Observable<any> {
-    return this.http.post<any>('https://reqres.in/api/register', user);
+    return this.http.post<any>('http://localhost:8080/auth/signup', user);
   }
 }

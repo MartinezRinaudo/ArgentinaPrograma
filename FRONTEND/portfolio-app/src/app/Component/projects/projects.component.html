@@ -5,21 +5,21 @@
     </div>
     <div class="card-body">
         <ul class="list-group" id="projects">
-            <li class="list-group-item list-group-item-light"*ngFor="let project of projectsData"  id="to-edit-{{project.id}}">
+            <li class="list-group-item list-group-item-light" *ngFor="let project of projectsData"  id="to-edit-1">
                 <div class="data-container">
                     <div class="list-info-project">
                         <div class="project-name">
-                            <h5 id="data-list-project-name-{{project.id}}">{{project.name}}</h5>
-                            <h6 id="data-list-project-place-{{project.id}}">{{project.place}}</h6>    
+                            <h5 id="data-list-project-name-1">{{project.name}}</h5>
+                            <h6 id="data-list-project-place-1">{{project.place}}</h6>    
                         </div>
                         <div class="project-details">
-                            <p id="data-list-project-description-en-{{project.id}}">{{project.descriptionEnglish}}</p>
-                            <p id="data-list-project-description-es-{{project.id}}">{{project.descriptionSpanish}}</p>
+                            <p id="data-list-project-description-en-1">{{project.englishDescription}}</p>
+                            <p id="data-list-project-description-es-1">{{project.spanishDescription}}</p>
                         </div>
                     </div>  
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
-                    <div id="edit-btn-project"><i class="fa fa-pen me-md-2" id="{{project.id}}" (click)="editItem($event)" ></i></div>
+                    <div id="edit-btn-project"><i class="fa fa-pen me-md-2" id="1" (click)="editItem($event)" ></i></div>
                     <div id="remove-btn-project"><i class="fa fa-trash"></i></div>
                 </div>
             </li>

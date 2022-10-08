@@ -2,14 +2,16 @@ package argentina.programa.portfolio.model.response;
 
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TechnologyResponse {
+public class TechListResponse {
 
-    private String imageUrl;
-    private String imageName;
-    private Integer percentage;
+    private String category;
+    private Set<TechnologyResponse> technologyList;
+
 }

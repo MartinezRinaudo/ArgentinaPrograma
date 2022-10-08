@@ -24,6 +24,6 @@ public class ProfileRequest {
     private AboutMeRequest aboutMe;
     private Set<ExperienceRequest> experience;
     private Set<EducationRequest> education;
-    private Set<TechnologyRequest> technologies;
+    private Set<TechListRequest> technologies;
     private Set<ProjectRequest> projects;
 }

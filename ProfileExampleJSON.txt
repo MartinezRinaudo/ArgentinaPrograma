@@ -1,0 +1,113 @@
+{
+"email":"martinezrinaudo@outlook.com",
+"fullName":"Mariano Nicolas Martinez Rinaudo",
+"location":"Tandil, Buenos Aires (Argentina)",
+"profession":"Java Fullstack Developer",
+"imageUrl":"./assets/images/profile.jpg",
+"contactInformation":
+	[{
+		"imageUrl":"./assets/images/logo_email.png",
+		"imageName":"Email",
+		"link":"#",
+		"socialMedia": "Email: martinezrinaudo@outlook.com"
+	},
+	{
+		"imageUrl":"./assets/images/logo_linkedin.png",
+		"imageName":"Linkedin",
+		"link":"https://www.linkedin.com/in/mariano-nicolas-martinez-rinaudo-8822a2211/",
+		"socialMedia":"LinkedIn: Mariano Martinez Rinaudo"
+	},
+	{
+		"imageUrl":"./assets/images/logo2_github.png",
+		"imageName":"Github",
+		"link":"https://github.com/MartinezRinaudo",
+		"socialMedia":"GitHub: MartinezRinaudo"
+	}],
+"languages":
+	[{
+		"name":"English - Inglés: ",
+		"level":"Intermediate - Intermedio"
+	},
+	{
+		"name":"Spanish - Español: ",
+		"level":"Native - Nativo"
+	}],
+"aboutMe":
+	{
+		"spanishDescription":"I'm Java fullstack developer. From the point of view of the backend side, I based my knowledge and skills on the OOP and web development with the best practices of programming. And from the frontend side, I've the basic experience to do a simple web page or a full web site. I've a proactive and results-oriented profile, I always try to learn as much as possible to do my work in the most efficient way and I can work in a team or the independently without any problem.",
+		"englishDescription":"Soy desarrollador Java fullstack. Desde el punto de vista del lado del backend, basé mis conocimientos y habilidades en programación orientada a objetos y desarrollo web con las mejores prácticas de programación. Y desde el lado de la interfaz, tengo la experiencia básica para hacer una página web simple o un sitio web completo. Tengo un perfil proactivo y orientado a resultados, siempre trato de aprender lo más posible para hacer mi trabajo de la manera más eficiente. Puedo trabajar en equipo o de forma independiente sin ningún problema."
+	},
+"experience":
+	[{
+		"job":"Java Developer",
+		"place":"Alkemy",
+		"startDate":"2022-06-01",
+		"endDate":"2022-07-31",
+		"typeOfJob":"Remote-Remoto",
+		"skills":"Soft skills and agile methodologies"
+	}],
+"education":
+	[{
+		"name":"Java Fullstack Developer Engineer",
+		"place":"Educacion IT",
+		"startDate":"2021-04-01",
+		"endDate":"2022-04-30"
+	},
+	{
+		"name":"Java Fullstack Developer Jr",
+		"place":"Argentina Programa",
+		"startDate":"2022-02-01",
+		"endDate":"2022-08-31"
+	}],
+"technologies":
+	[{
+		"category":"BACKEND",
+		"technologyResponseSet":
+			[{
+				"imageUrl":"./assets/images/logo_hibernate.jpg",
+				"imageName":"Hibernate",
+				"percentage":60
+			},
+			{
+				"imageUrl":"./assets/images/logo_spring.png",
+				"imageName":"Spring",
+				"percentage":50
+			},
+			{
+				"imageUrl":"./assets/images/logo_Java.jpg",
+				"imageName":"Java",
+				"percentage":70
+			},
+			{
+				"imageUrl":"./assets/images/logo_swagger.png",
+				"imageName":"Swagger",
+				"percentage":80
+			},
+			{
+				"imageUrl":"./assets/images/logo_jwt.png",
+				"imageName":"JWT",
+				"percentage":80
+			},
+			{
+				"imageUrl":"./assets/images/logo_mysql.png",
+				"imageName":"MySQL",
+				"percentage":80
+			}]
+		},
+			{
+		"category":"FRONTEND",
+"technologyResponseSet":[{"imageUrl":"./assets/images/logo_css.png","imageName":"CSS","percentage":90},{"imageUrl":"./assets/images/logo_Javascript.png","imageName":"Javascript","percentage":80},{"imageUrl":"./assets/images/logo_html.png","imageName":"HTML","percentage":90},{"imageUrl":"./assets/images/logo_Bootstrap.png","imageName":"Bootstrap","percentage":80},{"imageUrl":"./assets/images/logo_angular.png","imageName":"Angular","percentage":40},{"imageUrl":"./assets/images/logo_react.png","imageName":"React","percentage":30}]},{"category":"OTHER","technologyResponseSet":[{"imageUrl":"./assets/images/logo_jenkins.png","imageName":"Jenkins","percentage":40},{"imageUrl":"./assets/images/logo_swagger.png","imageName":"Swagger","percentage":80},{"imageUrl":"./assets/images/logo_git.png","imageName":"GIT","percentage":75},{"imageUrl":"./assets/images/logo_Java.jpg","imageName":"Java","percentage":70},{"imageUrl":"./assets/images/logo_jwt.png","imageName":"JWT","percentage":80},{"imageUrl":"./assets/images/logo_Github.png","imageName":"Github","percentage":80},{"imageUrl":"./assets/images/logo_mysql.png","imageName":"MySQL","percentage":80},{"imageUrl":"./assets/images/logo_docker.png","imageName":"Docker","percentage":30},{"imageUrl":"./assets/images/logo_hibernate.jpg","imageName":"Hibernate","percentage":60},{"imageUrl":"./assets/images/logo_spring.png","imageName":"Spring","percentage":50}]}],
+"projects":
+	[{
+		"name":"Portfolio Argentina Programa",
+		"place":"ARGENTINA PROGRAMA",
+		"spanishDescription":"Portafolio mostrando el perfil del desarrollador al usuario. En el desarrollo del backend, la información se proporciona a través de la interacción de java con mysql, para ser utilizada a través del marco angular para finalmente devolverla.",
+		"englishDescription":"Portfolio showing the developer's profile to the user. In the backend development, the information is provided through the interaction of java with mysql, to be used through the angular framework to finally return it."
+	},
+	{
+		"name":"ONG Project",
+		"place":"ALKEMY",
+		"spanishDescription":"Desarrollo de una aplicacion restful para una ONG ficticia en lenguaje Java. La aplicación cuenta con una variedad de enpoints y sus metodos CRUD, incorporación  de librerias como jwt, swagger, sendgrid y amazon S3. La metodologia de trabajo de equipo fue basada en los principios scrum.",
+		"englishDescription":"Development of a restful application for a fictitious NGO in Java language. The application has a variety of enpoints and its CRUD methods, incorporating libraries such as jwt, swagger, sendgrid and amazon S3. The team work methodology was based on the scrum principles."
+	}]
+}

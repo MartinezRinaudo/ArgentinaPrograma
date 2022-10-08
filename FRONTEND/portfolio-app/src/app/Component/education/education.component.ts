@@ -19,7 +19,7 @@ export class EducationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataPortfolio.getData().subscribe(data => {
+    this.dataPortfolio.getData(1).subscribe(data => {
       this.education = data.education;
     });
     this.btnEdition = this.edition.showBtnsEdition();

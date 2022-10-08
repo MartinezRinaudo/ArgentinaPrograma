@@ -63,7 +63,7 @@ public class DataBaseSeeder {
                 .aboutMe(aboutMe())
                 .experience(experienceSet())
                 .education(educationSet())
-                .technologies(technologySet())
+                .technologies(technologiesLists())
                 .projects(projectsSet())
                 .build()
         );
@@ -145,119 +145,105 @@ public class DataBaseSeeder {
         return educationList;
     }
 
-    private Set<Technology> technologySet() {
+    private Set<TechnologiesList> technologiesLists() {
+        Set<TechnologiesList> techList = new HashSet<>();
+
+        var t1 = TechnologiesList
+                .builder()
+                .category(TechCategory.OTHER.getTechCategory())
+                .technologiesList(technologyOtherSet())
+                .build();
+        var t2 = TechnologiesList
+                .builder()
+                .category(TechCategory.FRONTEND.getTechCategory())
+                .technologiesList(technologyFrontSet())
+                .build();
+        var t3 = TechnologiesList
+                .builder()
+                .category(TechCategory.BACKEND.getTechCategory())
+                .technologiesList(technologyBackSet())
+                .build();
+
+        techList.add(t1);
+        techList.add(t2);
+        techList.add(t3);
+
+        return techList;
+    }
+
+    private Set<Technology> technologyOtherSet() {
         Set<Technology> techList = new HashSet<>();
 
         var t1 = Technology
-                    .builder()
-                    .imageUrl("./assets/images/logo_html.png")
-                    .imageName("HTML")
-                    .category(TechCategory.FRONTEND.getTechCategory())
-                    .percentage(90)
-                    .build();
+                .builder()
+                .imageUrl("./assets/images/logo_git.png")
+                .imageName("GIT")
+                .percentage(75)
+                .build();
         var t2 = Technology
-                    .builder()
-                    .imageUrl("./assets/images/logo_css.png")
-                    .imageName("CSS")
-                    .category(TechCategory.FRONTEND.getTechCategory())
-                    .percentage(90)
-                    .build();
+                .builder()
+                .imageUrl("./assets/images/logo_Github.png")
+                .imageName("Github")
+                .percentage(80)
+                .build();
         var t3 = Technology
-                    .builder()
-                    .imageUrl("./assets/images/logo_Javascript.png")
-                    .imageName("Javascript")
-                    .category(TechCategory.FRONTEND.toString())
-                    .percentage(80)
-                    .build();
+                .builder()
+                .imageUrl("./assets/images/logo_docker.png")
+                .imageName("Docker")
+                .percentage(30)
+                .build();
+        var t4 = Technology
+                .builder()
+                .imageUrl("./assets/images/logo_jenkins.png")
+                .imageName("Jenkins")
+                .percentage(40)
+                .build();
+
+        techList.add(t1);
+        techList.add(t2);
+        techList.add(t3);
+        techList.add(t4);
+
+        return techList;
+    }
+
+    private Set<Technology> technologyFrontSet() {
+        Set<Technology> techList = new HashSet<>();
+
+        var t1 = Technology
+                .builder()
+                .imageUrl("./assets/images/logo_html.png")
+                .imageName("HTML")
+                .percentage(90)
+                .build();
+        var t2 = Technology
+                .builder()
+                .imageUrl("./assets/images/logo_css.png")
+                .imageName("CSS")
+                .percentage(90)
+                .build();
+        var t3 = Technology
+                .builder()
+                .imageUrl("./assets/images/logo_Javascript.png")
+                .imageName("Javascript")
+                .percentage(80)
+                .build();
         var t4 = Technology
                 .builder()
                 .imageUrl("./assets/images/logo_Bootstrap.png")
                 .imageName("Bootstrap")
-                .category(TechCategory.FRONTEND.toString())
                 .percentage(80)
                 .build();
         var t5 = Technology
                 .builder()
                 .imageUrl("./assets/images/logo_react.png")
                 .imageName("React")
-                .category(TechCategory.FRONTEND.toString())
                 .percentage(30)
                 .build();
         var t6 = Technology
                 .builder()
                 .imageUrl("./assets/images/logo_angular.png")
                 .imageName("Angular")
-                .category(TechCategory.FRONTEND.toString())
-                .percentage(40)
-                .build();
-        var t7 = Technology
-                .builder()
-                .imageUrl("./assets/images/logo_Java.jpg")
-                .imageName("Java")
-                .category(TechCategory.BACKEND.getTechCategory())
-                .percentage(70)
-                .build();
-        var t8 = Technology
-                .builder()
-                .imageUrl("./assets/images/logo_spring.png")
-                .imageName("Spring")
-                .category(TechCategory.BACKEND.getTechCategory())
-                .percentage(50)
-                .build();
-        var t9 = Technology
-                .builder()
-                .imageUrl("./assets/images/logo_hibernate.jpg")
-                .imageName("Hibernate")
-                .category(TechCategory.BACKEND.getTechCategory())
-                .percentage(60)
-                .build();
-        var t10 = Technology
-                .builder()
-                .imageUrl("./assets/images/logo_mysql.png")
-                .imageName("MySQL")
-                .category(TechCategory.BACKEND.getTechCategory())
-                .percentage(80)
-                .build();
-        var t11 = Technology
-                .builder()
-                .imageUrl("./assets/images/logo_jwt.png")
-                .imageName("JWT")
-                .category(TechCategory.BACKEND.getTechCategory())
-                .percentage(80)
-                .build();
-        var t12 = Technology
-                .builder()
-                .imageUrl("./assets/images/logo_swagger.png")
-                .imageName("Swagger")
-                .category(TechCategory.BACKEND.getTechCategory())
-                .percentage(80)
-                .build();
-        var t13 = Technology
-                .builder()
-                .imageUrl("./assets/images/logo_git.png")
-                .imageName("GIT")
-                .category(TechCategory.OTHER.getTechCategory())
-                .percentage(75)
-                .build();
-        var t14 = Technology
-                .builder()
-                .imageUrl("./assets/images/logo_Github.png")
-                .imageName("Github")
-                .category(TechCategory.OTHER.getTechCategory())
-                .percentage(80)
-                .build();
-        var t15 = Technology
-                .builder()
-                .imageUrl("./assets/images/logo_docker.png")
-                .imageName("Docker")
-                .category(TechCategory.OTHER.getTechCategory())
-                .percentage(30)
-                .build();
-        var t16 = Technology
-                .builder()
-                .imageUrl("./assets/images/logo_jenkins.png")
-                .imageName("Jenkins")
-                .category(TechCategory.OTHER.getTechCategory())
                 .percentage(40)
                 .build();
 
@@ -267,16 +253,56 @@ public class DataBaseSeeder {
         techList.add(t4);
         techList.add(t5);
         techList.add(t6);
-        techList.add(t7);
-        techList.add(t8);
-        techList.add(t9);
-        techList.add(t10);
-        techList.add(t11);
-        techList.add(t12);
-        techList.add(t13);
-        techList.add(t14);
-        techList.add(t15);
-        techList.add(t16);
+
+        return techList;
+    }
+
+    private Set<Technology> technologyBackSet() {
+        Set<Technology> techList = new HashSet<>();
+
+        var t1 = Technology
+                .builder()
+                .imageUrl("./assets/images/logo_Java.jpg")
+                .imageName("Java")
+                .percentage(70)
+                .build();
+        var t2 = Technology
+                .builder()
+                .imageUrl("./assets/images/logo_spring.png")
+                .imageName("Spring")
+                .percentage(50)
+                .build();
+        var t3 = Technology
+                .builder()
+                .imageUrl("./assets/images/logo_hibernate.jpg")
+                .imageName("Hibernate")
+                .percentage(60)
+                .build();
+        var t4 = Technology
+                .builder()
+                .imageUrl("./assets/images/logo_mysql.png")
+                .imageName("MySQL")
+                .percentage(80)
+                .build();
+        var t5 = Technology
+                .builder()
+                .imageUrl("./assets/images/logo_jwt.png")
+                .imageName("JWT")
+                .percentage(80)
+                .build();
+        var t6 = Technology
+                .builder()
+                .imageUrl("./assets/images/logo_swagger.png")
+                .imageName("Swagger")
+                .percentage(80)
+                .build();
+
+        techList.add(t1);
+        techList.add(t2);
+        techList.add(t3);
+        techList.add(t4);
+        techList.add(t5);
+        techList.add(t6);
 
         return techList;
     }
@@ -326,8 +352,8 @@ public class DataBaseSeeder {
     private AboutMe aboutMe() {
         return AboutMe
                 .builder()
-                .spanishDescription("I'm Java fullstack developer. From the point of view of the backend side, I based my knowledge and skills on the OOP and web development with the best practices of programming. And from the frontend side, I've the basic experience to do a simple web page or a full web site. I've a proactive and results-oriented profile, I always try to learn as much as possible to do my work in the most efficient way and I can work in a team or the independently without any problem.")
-                .englishDescription("Soy desarrollador Java fullstack. Desde el punto de vista del lado del backend, basé mis conocimientos y habilidades en programación orientada a objetos y desarrollo web con las mejores prácticas de programación. Y desde el lado de la interfaz, tengo la experiencia básica para hacer una página web simple o un sitio web completo. Tengo un perfil proactivo y orientado a resultados, siempre trato de aprender lo más posible para hacer mi trabajo de la manera más eficiente. Puedo trabajar en equipo o de forma independiente sin ningún problema.")
+                .englishDescription("I'm Java fullstack developer. From the point of view of the backend side, I based my knowledge and skills on the OOP and web development with the best practices of programming. And from the frontend side, I've the basic experience to do a simple web page or a full web site. I've a proactive and results-oriented profile, I always try to learn as much as possible to do my work in the most efficient way and I can work in a team or the independently without any problem.")
+                .spanishDescription("Soy desarrollador Java fullstack. Desde el punto de vista del lado del backend, basé mis conocimientos y habilidades en programación orientada a objetos y desarrollo web con las mejores prácticas de programación. Y desde el lado de la interfaz, tengo la experiencia básica para hacer una página web simple o un sitio web completo. Tengo un perfil proactivo y orientado a resultados, siempre trato de aprender lo más posible para hacer mi trabajo de la manera más eficiente. Puedo trabajar en equipo o de forma independiente sin ningún problema.")
                 .build();
     }
 }

@@ -75,8 +75,8 @@ public class Profile {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "profile_techs",
             joinColumns = {@JoinColumn(name = "profile_id")},
-            inverseJoinColumns = {@JoinColumn(name = "technology_id")})
-    private Set<Technology> technologies;
+            inverseJoinColumns = {@JoinColumn(name = "technologies_list_id")})
+    private Set<TechnologiesList> technologies;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "profile_project",

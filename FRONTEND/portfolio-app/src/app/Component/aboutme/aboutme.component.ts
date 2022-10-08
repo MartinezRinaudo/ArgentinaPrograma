@@ -16,8 +16,8 @@ export class AboutmeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataPortfolio.getData().subscribe(data => {
-      this.aboutme = data.aboutme;
+    this.dataPortfolio.getData(1).subscribe(data => {
+      this.aboutme = data.aboutMe;
     });
     this.btnEdition = this.edition.showBtnsEdition();
   }

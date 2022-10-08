@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EditionService } from 'src/app/Services/edition/edition.service';
 import { PortfolioService } from 'src/app/Services/portfolio/portfolio.service';
-import { PortfolioComponent } from '../portfolio/portfolio.component';
 
 @Component({
   selector: 'app-technologies',
@@ -17,9 +16,8 @@ export class TechnologiesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataPortfolio.getData().subscribe(data => {
+    this.dataPortfolio.getData(1).subscribe(data => {
       this.technologiesData = data.technologies;
-      console.log(data.technologies);
     });
     this.btnEdition = this.edition.showBtnsEdition();
   }

@@ -20,8 +20,9 @@ export class ProjectsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataPortfolio.getData().subscribe(data => {
+    this.dataPortfolio.getData(1).subscribe(data => {
       this.projectsData = data.projects;
+      console.dir(this.projectsData)
     });
     this.btnEdition = this.edition.showBtnsEdition();
   }

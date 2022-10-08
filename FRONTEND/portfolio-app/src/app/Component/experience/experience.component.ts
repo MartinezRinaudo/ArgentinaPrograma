@@ -20,7 +20,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataPortfolio.getData().subscribe(data => {
+    this.dataPortfolio.getData(1).subscribe(data => {
       this.experienceData = data.experience;
     });
     this.btnEdition = this.edition.showBtnsEdition();

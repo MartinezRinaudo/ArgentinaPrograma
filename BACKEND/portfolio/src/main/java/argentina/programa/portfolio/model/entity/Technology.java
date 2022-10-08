@@ -22,10 +22,6 @@ public class Technology {
     @Column(name = "technology_id")
     private long id;
 
-    @NotBlank(message = "The category can't be empty")
-    @Column(name = "category")
-    private String category;
-
     @NotBlank(message = "The url can't be empty")
     @Column(name = "image_url", length = 60, nullable = false)
     private String imageUrl;

@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.dataPortfolio.getData().subscribe(data => {
+    this.dataPortfolio.getData(1).subscribe(data => {
       this.myPortfolio = data;
     });
     this.btnEdition = this.edition.showBtnsEdition();

@@ -9,7 +9,6 @@ import lombok.*;
 @Builder
 public class TechnologyRequest {
 
-    private String category;
     private String imageUrl;
     private String imageName;
     private Integer percentage;
