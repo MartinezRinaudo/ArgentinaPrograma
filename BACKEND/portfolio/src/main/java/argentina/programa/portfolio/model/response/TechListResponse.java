@@ -11,6 +11,8 @@ import java.util.Set;
 @Builder
 public class TechListResponse {
 
+
+    private long id;
     private String category;
     private Set<TechnologyResponse> technologyList;
 

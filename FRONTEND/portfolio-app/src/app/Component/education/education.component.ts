@@ -12,10 +12,13 @@ export class EducationComponent implements OnInit {
   education:any;
   btnEdition : boolean; 
   btnAdd : boolean;
+  id: number;
+
 
   constructor(private dataPortfolio:PortfolioService, private edition:EditionService) { 
     this.btnEdition = this.edition.btnsEdition;
     this.btnAdd = this.edition.btnsAdd;
+    this.id = 0;
   }
 
   ngOnInit(): void {
@@ -34,20 +37,52 @@ export class EducationComponent implements OnInit {
   }
 
   saveChanges() {
-    /*SIN CONEXION CON EL BACKEND*/
+    let id = this.id;
     let name = (<HTMLInputElement>document.getElementById("name-education")).value;
     let place = (<HTMLInputElement>document.getElementById("place-education")).value;
     let startDate = (<HTMLInputElement>document.getElementById("start-date-education")).value;
     let endDate = (<HTMLInputElement>document.getElementById("end-date-education")).value;
     
     let newEdu = {
-      "name":name, 
-      "place":place, 
-      "start":startDate,
-      "end":endDate,
+      education: [
+        {
+          "id":id,
+          "name":name, 
+          "place":place, 
+          "startDate":startDate,
+          "endDate":endDate,
+        }
+      ]  
     }
-    this.education.unshift(newEdu);
-    this.btnAdd = false;
+
+    let edu = JSON.stringify(newEdu);
+    
+    this.dataPortfolio.editElement(1, "education", edu)
+      .subscribe((response) => {
+        this.education = response.education
+      });  
+      this.btnAdd = false;
+      this.id = 0;
   }
 
+  editItem(event:any){
+    this.addItem(); 
+    this.id = event.target.id;
+    
+    setTimeout(() => {    
+      let name = (<HTMLInputElement>document.getElementById("name-education"));
+      let place = (<HTMLInputElement>document.getElementById("place-education"));
+      let startDate = (<HTMLInputElement>document.getElementById("start-date-education"));
+      let endDate = (<HTMLInputElement>document.getElementById("end-date-education")); 
+      
+     for (let i = 0; i < this.education.length; i++) {
+      if(this.education[i].id == this.id){
+        name.value = (this.education[i]).name;
+        place.value = (this.education[i]).place;
+        startDate.value = (this.education[i]).startDate;
+        endDate.value = (this.education[i]).endDate;
+      }
+     }
+    }, 100);
+   } 
 }

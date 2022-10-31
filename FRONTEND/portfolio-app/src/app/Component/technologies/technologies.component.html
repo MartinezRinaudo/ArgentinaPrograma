@@ -2,18 +2,18 @@
     <div class="card-title">
         <h3>Technologies / Tecnologias</h3>
     </div>
-    <div *ngFor="let tech of technologiesData">
+    <div *ngFor="let tech of technologiesData" [id]="tech.id" class="principal-tech">
         <div class="card-title">
             <h4>{{tech.category}}</h4>
             <div id="agregate-btn-skills" *ngIf="btnEdition"><i class="fa fa-plus"></i></div>
         </div>
        <div class="card-body">
             <ul class="list-group list-group-horizontal list-group-item-light">
-                <li class="list-group-item list-group-item-light" *ngFor="let t of tech.technologyList">
+                <li class="list-group-item list-group-item-light" *ngFor="let t of tech.technologyList" [id]="t.id" >
                     <div>
-                        <a href="">
+                        <a>
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
-                                <div id="edit-btn-skills"><i class="fa fa-pen me-md-2"></i></div>
+                                <div id="edit-btn-skills"><i class="fa fa-pen me-md-2" [id]="tech.id" (click)="editItem($event)"></i></div>
                                 <div id="remove-btn-skills"><i class="fa fa-trash"></i></div>
                             </div>
                             <div>
@@ -22,7 +22,24 @@
                             </div>
                         </a>
                     </div>
-                  
+                </li>
+                <li class="list-group-item list-group-item-light" id="addItem" *ngIf="btnAdd"  >
+                    <div class="data-container">
+                        <div class="list-info-tech">
+                            <h5>Complete the technology information:</h5>
+                            <br>
+                            <div class="tech-name">
+                                <h5 id="data-list-tech-category">Category: <input type="text" placeholder="Category" id="category-tech"></h5>
+                                <h6 id="data-list-tech-name">Name: <input type="text" placeholder="Name" id="name-tech"></h6>
+                                <h6 id="data-list-tech-percentage">Percentage: <input type="number" max="100" min="0" placeholder="percentage" id="percentage-tech"></h6>
+                                <h6 id="data-list-tech-image">Image:  <input type="file" placeholder="Tech Image" accept="image/*" id="image-tech" (change)="openFile($event)"></h6>    
+                            </div>
+                            <div class="tech-details">
+                                <button class="btn btn-secondary" (click)="saveChanges()">Save changes</button>
+                                <button class="btn btn-terciary" (click)="addItem()">Cancel</button>       
+                            </div>
+                        </div>  
+                    </div>
                 </li>
             </ul>
         </div>        

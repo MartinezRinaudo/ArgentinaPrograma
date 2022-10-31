@@ -42,4 +42,9 @@ public class ProfileController {
     ResponseEntity<?>deleteProfile(@Valid @PathVariable("id") Long id) {
         return new ResponseEntity<>(profileService.removeProfile(id), HttpStatus.OK);
     }
+
+    @DeleteMapping(path = "/{id}/{element}/{idElement}")
+    ResponseEntity<?>deleteProfile(@Valid @PathVariable("id") Long id, @PathVariable("element") String element, @PathVariable("idElement") Long idElement) {
+        return new ResponseEntity<>(profileService.removeElement(id, element, idElement), HttpStatus.OK);
+    }
 }

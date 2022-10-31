@@ -3,9 +3,12 @@ package argentina.programa.portfolio.model.mapper;
 import argentina.programa.portfolio.common.TechCategory;
 import argentina.programa.portfolio.common.exception.BadRequestException;
 import argentina.programa.portfolio.common.exception.Errors;
+import argentina.programa.portfolio.common.exception.NotFoundException;
 import argentina.programa.portfolio.model.entity.*;
 import argentina.programa.portfolio.model.request.*;
 import argentina.programa.portfolio.model.response.*;
+import argentina.programa.portfolio.repository.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
@@ -14,6 +17,24 @@ import java.util.Set;
 @Component
 public class ProfileMapper {
 
+    @Autowired
+    AboutMeRepository aboutMeRepository;
+    @Autowired
+    ContactInformationRepository contactInformationRepository;
+    @Autowired
+    EducationRepository educationRepository;
+    @Autowired
+    ExperienceRepository experienceRepository;
+    @Autowired
+    LanguageRepository languageRepository;
+    @Autowired
+    ProjectRepository projectRepository;
+    @Autowired
+    TechListRepository techListRepository;
+    @Autowired
+    TechRepository techRepository;
+    @Autowired
+    ProfileRepository profileRepository;
     public Profile toProfileEntity(ProfileRequest profileRequest) {
         return Profile.builder()
                 .email(profileRequest.getEmail())
@@ -34,31 +55,43 @@ public class ProfileMapper {
     public Set<ContactInformation> toContactInformationList(Set<ContactInformationRequest> contactInformationRequestList){
         Set<ContactInformation> contactInfoList = new HashSet<>();
         contactInformationRequestList.forEach(c -> {
-            var contact = ContactInformation.builder()
-                    .imageUrl(c.getImageUrl())
-                    .imageName(c.getImageName())
-                    .link(c.getLink())
-                    .socialMedia(c.getSocialMedia())
-                    .build();
+            var contact = toContactInformation(c);
             contactInfoList.add(contact);
         });
         return contactInfoList;
+    }
+    public ContactInformation toContactInformation(ContactInformationRequest contactInformationRequest) {
+        var contact = ContactInformation.builder()
+                .id(contactInformationRequest.getId())
+                .imageUrl(contactInformationRequest.getImageUrl())
+                .imageName(contactInformationRequest.getImageName())
+                .link(contactInformationRequest.getLink())
+                .socialMedia(contactInformationRequest.getSocialMedia())
+                .build();
+        return contact;
     }
 
     public Set<Language> toLanguagesList(Set<LanguageRequest> languagesRequestList) {
         Set<Language> languagesList = new HashSet<>();
         languagesRequestList.forEach(l -> {
-            var lang = Language.builder()
-                    .name(l.getName())
-                    .level(l.getLevel())
-                    .build();
+            var lang =toLanguage(l);
             languagesList.add(lang);
         });
         return languagesList;
     }
 
+    public Language toLanguage(LanguageRequest languageRequest) {
+        var lang = Language.builder()
+                .id(languageRequest.getId())
+                .name(languageRequest.getName())
+                .level(languageRequest.getLevel())
+                .build();
+        return lang;
+    }
+
     public AboutMe toAboutMe(AboutMeRequest aboutMeRequest){
         return AboutMe.builder()
+                .id(aboutMeRequest.getId())
                 .spanishDescription(aboutMeRequest.getSpanishDescription())
                 .englishDescription(aboutMeRequest.getEnglishDescription())
                 .build();
@@ -67,55 +100,79 @@ public class ProfileMapper {
     public Set<Experience> toExperienceList(Set<ExperienceRequest> experienceRequestsList){
         Set<Experience> experienceList = new HashSet<>();
         experienceRequestsList.forEach(e -> {
-            var exp= Experience.builder()
-                    .job(e.getJob())
-                    .place(e.getPlace())
-                    .startDate(e.getStartDate())
-                    .endDate(e.getEndDate())
-                    .typeOfJob(e.getTypeOfJob())
-                    .skills(e.getSkills())
-                    .build();
+            var exp= toExperience(e);
             experienceList.add(exp);
         });
         return experienceList;
     }
 
+    public Experience toExperience(ExperienceRequest experienceRequest) {
+        var exp= Experience.builder()
+                .id(experienceRequest.getId())
+                .job(experienceRequest.getJob())
+                .place(experienceRequest.getPlace())
+                .startDate(experienceRequest.getStartDate())
+                .endDate(experienceRequest.getEndDate())
+                .typeOfJob(experienceRequest.getTypeOfJob())
+                .skills(experienceRequest.getSkills())
+                .build();
+        return exp;
+    }
+
     public Set<Education> toEducationList(Set<EducationRequest> educationRequestList){
         Set<Education> educationList = new HashSet<>();
         educationRequestList.forEach(e -> {
-            var edu= Education.builder()
-                    .name(e.getName())
-                    .place(e.getPlace())
-                    .startDate(e.getStartDate())
-                    .endDate(e.getEndDate())
-                    .build();
+            var edu= toEducation(e);
             educationList.add(edu);
         });
         return educationList;
     }
 
+    public Education toEducation(EducationRequest educationRequest) {
+        var edu= Education.builder()
+                .id(educationRequest.getId())
+                .name(educationRequest.getName())
+                .place(educationRequest.getPlace())
+                .startDate(educationRequest.getStartDate())
+                .endDate(educationRequest.getEndDate())
+                .build();
+        return edu;
+    }
+
     public Set<TechnologiesList> toTechnologiesFullList(Set<TechListRequest> technologiesRequestList){
         Set<TechnologiesList> technologiesList = new HashSet<>();
         technologiesRequestList.forEach(t -> {
-            var tech= TechnologiesList.builder()
-                    .category(returnCategory(t).getTechCategory())
-                    .technologiesList(toTechnologyList(t.getTechnologyRequestSet()))
-                    .build();
+            var tech= toTechnologiesList(t);
             technologiesList.add(tech);
         });
         return technologiesList;
     }
+
+    public TechnologiesList toTechnologiesList(TechListRequest techListRequest) {
+        var tech= TechnologiesList.builder()
+                .id(techListRequest.getId())
+                .category(returnCategory(techListRequest).getTechCategory())
+                .technologiesList(toTechnologyList(techListRequest.getTechnologyList()))
+                .build();
+        return tech;
+    }
     public Set<Technology> toTechnologyList(Set<TechnologyRequest> technologiesRequestList){
         Set<Technology> technologyList = new HashSet<>();
         technologiesRequestList.forEach(t -> {
-            var tech= Technology.builder()
-                    .imageUrl(t.getImageUrl())
-                    .imageName(t.getImageName())
-                    .percentage(t.getPercentage())
-                    .build();
+            var tech= toTechnology(t);
             technologyList.add(tech);
         });
         return technologyList;
+    }
+
+    public Technology toTechnology(TechnologyRequest technologyRequest){
+        var tech= Technology.builder()
+                .id(technologyRequest.getId())
+                .imageUrl(technologyRequest.getImageUrl())
+                .imageName(technologyRequest.getImageName())
+                .percentage(technologyRequest.getPercentage())
+                .build();
+        return tech;
     }
 
     private TechCategory returnCategory(TechListRequest tech) {
@@ -132,19 +189,26 @@ public class ProfileMapper {
     public Set<Project> toProjectList(Set<ProjectRequest> projectsRequestList){
         Set<Project> projectsList = new HashSet<>();
         projectsRequestList.forEach(p -> {
-            var proj= Project.builder()
-                    .name(p.getName())
-                    .place(p.getPlace())
-                    .spanishDescription(p.getSpanishDescription())
-                    .englishDescription(p.getEnglishDescription())
-                    .build();
+            var proj= toProject(p);
             projectsList.add(proj);
         });
         return projectsList;
     }
 
+    public Project toProject(ProjectRequest projectRequest){
+        var proj= Project.builder()
+                .id(projectRequest.getId())
+                .name(projectRequest.getName())
+                .place(projectRequest.getPlace())
+                .spanishDescription(projectRequest.getSpanishDescription())
+                .englishDescription(projectRequest.getEnglishDescription())
+                .build();
+        return proj;
+    }
+
     public ProfileResponse toProfileResponse(Profile profile) {
        return ProfileResponse.builder()
+                .id(profile.getId())
                 .email(profile.getEmail())
                 .fullName(profile.getFullName())
                 .location(profile.getLocation())
@@ -164,6 +228,7 @@ public class ProfileMapper {
         Set<ContactInformationResponse> contactInfoResponseList = new HashSet<>();
         contactInformationList.forEach(c -> {
             var contact = ContactInformationResponse.builder()
+                    .id(c.getId())
                     .imageUrl(c.getImageUrl())
                     .imageName(c.getImageName())
                     .link(c.getLink())
@@ -179,6 +244,7 @@ public class ProfileMapper {
         Set<LanguageResponse> languagesResponseList = new HashSet<>();
         languagesList.forEach(l -> {
             var lang = LanguageResponse.builder()
+                    .id(l.getId())
                     .name(l.getName())
                     .level(l.getLevel())
                     .build();
@@ -189,6 +255,7 @@ public class ProfileMapper {
 
     public AboutMeResponse toAboutMeResponse(AboutMe aboutMe){
         return AboutMeResponse.builder()
+                .id(aboutMe.getId())
                 .spanishDescription(aboutMe.getSpanishDescription())
                 .englishDescription(aboutMe.getEnglishDescription())
                 .build();
@@ -198,6 +265,7 @@ public class ProfileMapper {
         Set<ExperienceResponse> experienceResponseList = new HashSet<>();
         experienceList.forEach(e -> {
             var exp= ExperienceResponse.builder()
+                    .id(e.getId())
                     .job(e.getJob())
                     .place(e.getPlace())
                     .startDate(e.getStartDate())
@@ -214,6 +282,7 @@ public class ProfileMapper {
         Set<EducationResponse> educationResponseList = new HashSet<>();
         educationList.forEach(e -> {
             var edu= EducationResponse.builder()
+                    .id(e.getId())
                     .name(e.getName())
                     .place(e.getPlace())
                     .startDate(e.getStartDate())
@@ -228,6 +297,7 @@ public class ProfileMapper {
         Set<TechListResponse> technologiesResponseList = new HashSet<>();
         technologiesList.forEach(t -> {
             var tech= TechListResponse.builder()
+                    .id(t.getId())
                     .category(returnCategory(t).getTechCategory())
                     .technologyList(toTechnologyResponseList(t.getTechnologiesList()))
                     .build();
@@ -240,6 +310,7 @@ public class ProfileMapper {
         Set<TechnologyResponse> technologyResponseList = new HashSet<>();
         technologiesList.forEach(t -> {
             var tech= TechnologyResponse.builder()
+                    .id(t.getId())
                     .imageUrl(t.getImageUrl())
                     .imageName(t.getImageName())
                     .percentage(t.getPercentage())
@@ -264,6 +335,7 @@ public class ProfileMapper {
         Set<ProjectResponse> projectsResponseList = new HashSet<>();
         projectsList.forEach(p -> {
             var proj= ProjectResponse.builder()
+                    .id(p.getId())
                     .name(p.getName())
                     .place(p.getPlace())
                     .spanishDescription(p.getSpanishDescription())
@@ -275,6 +347,7 @@ public class ProfileMapper {
     }
 
     public Profile updateProfile(Profile profile, ProfileRequest profileReq) {
+        profile.setId(profile.getId());
         profile.setEmail(profileReq.getEmail());
         profile.setImageUrl(profileReq.getImageUrl());
         profile.setFullName(profileReq.getFullName());
@@ -290,47 +363,81 @@ public class ProfileMapper {
 
         return profile;
     }
-    public Profile updateProfile(Profile profile, ProfileRequest profileReq, String element) {
+    public void updateProfile(Long id, ProfileRequest profileReq, String element) {
+        var profile = profileRepository.findById(id).get();
         switch(element.toUpperCase()){
                 case "EMAIL":
-                profile.setEmail(profileReq.getEmail());
+                    profile.setEmail(profileReq.getEmail());
+                    profileRepository.save(profile);
                 break;
                 case "FULLNAME":
                     profile.setFullName(profileReq.getFullName());
+                    profileRepository.save(profile);
                 break;
                 case "IMAGEURL":
                     profile.setImageUrl(profileReq.getImageUrl());
+                    profileRepository.save(profile);
                 break;
                 case "PROFESSION":
                     profile.setProfession(profileReq.getProfession());
+                    profileRepository.save(profile);
                 break;
                 case "LOCATION":
                     profile.setLocation(profileReq.getLocation());
+                    profileRepository.save(profile);
                 break;
                 case "CONTACTINFORMATION":
-                    profile.setContactInformation(toContactInformationList(profileReq.getContactInformation()));
+                    var contactList = profileReq.getContactInformation();
+                    contactList.forEach((c) -> {
+                       var contact = toContactInformation(c);
+                       contactInformationRepository.save(contact);
+                   });
                 break;
                 case "LANGUAGE":
-                    profile.setLanguages(toLanguagesList(profileReq.getLanguages()));
+                    var languagesList = profileReq.getLanguages();
+                    languagesList.forEach((l) -> {
+                        var lang = toLanguage(l);
+                        languageRepository.save(lang);
+                    });
                 break;
                 case "ABOUTME":
-                    profile.setAboutMe(toAboutMe(profileReq.getAboutMe()));
+                    var aboutMe = toAboutMe(profileReq.getAboutMe());
+                    aboutMeRepository.save(aboutMe);
                 break;
                 case "EDUCATION":
-                    profile.setEducation(toEducationList(profileReq.getEducation()));
+                    var educationList = profileReq.getEducation();
+                    educationList.forEach(e -> {
+                        var edu = toEducation(e);
+                        educationRepository.save(edu);
+                    });
                 break;
                 case "EXPERIENCE":
-                    profile.setExperience(toExperienceList(profileReq.getExperience()));
+                    var experienceList = profileReq.getExperience();
+                    experienceList.forEach(e -> {
+                        var exp = toExperience(e);
+                        experienceRepository.save(exp);
+                    });
                 break;
                 case "TECHNOLOGY":
-                    profile.setTechnologies(toTechnologiesFullList(profileReq.getTechnologies()));
+                    var technologiesList = profileReq.getTechnologies();
+                    technologiesList.forEach(t -> {
+                        var technologies = toTechnologiesList(t);
+                        techListRepository.save(technologies);
+                        technologies.getTechnologiesList().forEach((tech) -> {
+                            var technology = tech;
+                            techRepository.save(technology);
+                        });
+                    });
                 break;
                 case "PROJECT":
-                    profile.setProjects(toProjectList(profileReq.getProjects()));
+                    var projectList = profileReq.getProjects();
+                    projectList.forEach(p -> {
+                        var proj = toProject(p);
+                        projectRepository.save(proj);
+                    });
                 break;
                 default:
                     throw new BadRequestException(Errors.WRONGELEMENT);
         }
-        return profile;
     }
 }

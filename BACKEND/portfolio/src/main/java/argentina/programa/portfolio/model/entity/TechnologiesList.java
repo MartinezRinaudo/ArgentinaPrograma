@@ -24,7 +24,7 @@ public class TechnologiesList {
     @Column(name = "category")
     private String category;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JoinTable(name = "tech_list",
             joinColumns = {@JoinColumn(name = "technologies_list_id")},
             inverseJoinColumns = {@JoinColumn(name = "technology_id")})

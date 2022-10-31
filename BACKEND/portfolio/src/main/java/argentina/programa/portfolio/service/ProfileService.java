@@ -12,4 +12,6 @@ public interface ProfileService {
     public ProfileResponse editProfile(ProfileRequest profileRequest, Long id);
     public ProfileResponse partialEditProfile(ProfileRequest profileRequest, Long id, String element);
     public String removeProfile(Long id);
+
+    public String removeElement(Long id, String element, Long idElement);
 }

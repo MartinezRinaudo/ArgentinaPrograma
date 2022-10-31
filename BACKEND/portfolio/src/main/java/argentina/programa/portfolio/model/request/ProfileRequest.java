@@ -13,6 +13,7 @@ import java.util.Set;
 public class ProfileRequest {
 
 
+    private long id;
     @Email
     private String email;
     private String fullName;

@@ -9,6 +9,8 @@ import lombok.*;
 @Builder
 public class LanguageResponse {
 
+
+    private long id;
     private String name;
     private String level;
 }

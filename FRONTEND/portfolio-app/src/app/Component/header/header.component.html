@@ -11,8 +11,29 @@
                 <div>
                     <button id="contact" class="btn btn-outline-secondary" (click)="Onclick()">Contact Information / Informacion de Contacto</button>       
                 </div>
+                <ul class="list-group" id="header">
+                    <li class="list-group-item list-group-item-light" id="addItem" *ngIf="btnAdd" style="width: auto;">
+                        <div class="data-container">
+                            <div class="list-info">
+                                <h5>Complete the profile information:</h5>
+                                <br>
+                                <div class="info-details">
+                                    <div id="data-list-info-description">
+                                        <h6>Full Name: <input type="text" placeholder="Full Name" id="name-header"></h6>
+                                        <h6>Email: <input type="text" placeholder="Email" id="email-header"></h6>
+                                        <h6>Profession: <input type="text" placeholder="Profession" id="profession-header"></h6>
+                                        <h6>Location: <input type="text" placeholder="Location" id="location-header"></h6>
+                                        <h6>Profile Image: <input type="file" placeholder="Profile Image" accept="image/*" id="image-header" (change)="openFile($event)"></h6>
+                                    </div>
+                                    <button class="btn btn-secondary" (click)="saveChangesH()">Save changes</button>
+                                    <button class="btn btn-terciary" (click)="addItem()">Cancel</button>    
+                                </div>
+                            </div>  
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div id="edit-btn-header" *ngIf="btnEdition"><i class="fa fa-pen me-md-2"></i></div>
+            <div id="edit-btn-header" *ngIf="btnEdition"><i class="fa fa-pen me-md-2" [id]="myPortfolio.id" (click)="editItem($event)"></i></div>
             <div id="info-actions"> 
                 <div id="contact-info" *ngIf="contactInfoView">
                     <div class="card-title">
@@ -20,11 +41,11 @@
                         <div id="agregate-btn-contact" *ngIf="btnEdition"><i class="fa fa-plus" (click)="addItem()"></i></div>                    </div>
                     <div>    
                         <ul id="info-details">
-                            <li *ngFor="let contactInfo of myPortfolio.contactInformation">
+                            <li *ngFor="let contactInfo of myPortfolio.contactInformation" [id]="contactInfo.id">
                                 <img [src]="contactInfo.imageUrl" [alt]="contactInfo.imageName">
                                 <h6><a [href]="contactInfo.link" target="_blank">{{contactInfo.socialMedia}}</a></h6>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
-                                    <div id="edit-btn-contact"><i class="fa fa-pen me-md-2"></i></div>
+                                    <div id="edit-btn-contact"><i class="fa fa-pen me-md-2" [id]="contactInfo.id" (click)="editItem($event)"></i></div>
                                     <div id="remove-btn-contact"><i class="fa fa-trash"></i></div>
                                 </div>
                             </li>
@@ -39,7 +60,7 @@
                                                 <h6>Link: <input type="text" placeholder="contact link" id="link-contact"></h6>
                                                 <h6>Image: <input type="file" placeholder="contact image" accept="image/*" id="image-contact" (change)="openFile($event)"></h6>
                                             </div>
-                                            <button class="btn btn-secondary" (click)="saveChanges()">Save changes</button>
+                                            <button class="btn btn-secondary" (click)="saveChangesCI()">Save changes</button>
                                             <button class="btn btn-terciary" (click)="addItem()">Cancel</button>    
                                         </div>
                                     </div>  

@@ -10,6 +10,8 @@ import lombok.*;
 @Builder
 public class ContactInformationResponse {
 
+
+    private long id;
     private String imageUrl;
     private String imageName;
     private String link;

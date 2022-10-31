@@ -9,6 +9,8 @@ import lombok.*;
 @Builder
 public class LanguageRequest {
 
+
+    private long id;
     private String name;
     private String level;
 }

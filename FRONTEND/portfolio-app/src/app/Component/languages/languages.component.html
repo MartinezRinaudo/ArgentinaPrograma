@@ -6,12 +6,12 @@
         </div>
         <div class="card-body">
            <ul class="list-group" id="langs">
-                <li class="list-group-item list-group-item-light" *ngFor="let language of languagesData">
+                <li class="list-group-item list-group-item-light" *ngFor="let language of languagesData" [id]="language.id">
                     <div class="list-info-languages">
                         <h6 id="data-list-languages-lang">{{language.name}}{{language.level}}</h6>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
-                        <div id="edit-btn-languages"><i class="fa fa-pen me-md-2"></i></div>
+                        <div id="edit-btn-languages"><i class="fa fa-pen me-md-2" [id]="language.id" (click)="editItem($event)"></i></div>
                         <div id="remove-btn-languages"><i class="fa fa-trash"></i></div>
                     </div>
                 </li>

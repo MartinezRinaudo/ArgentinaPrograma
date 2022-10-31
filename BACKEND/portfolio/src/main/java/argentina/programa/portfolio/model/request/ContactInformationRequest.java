@@ -9,6 +9,8 @@ import lombok.*;
 @Builder
 public class ContactInformationRequest {
 
+
+    private long id;
     private String imageUrl;
     private String imageName;
     private String link;

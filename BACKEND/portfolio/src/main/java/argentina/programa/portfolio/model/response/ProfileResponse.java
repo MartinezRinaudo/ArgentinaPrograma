@@ -11,6 +11,8 @@ import java.util.Set;
 @Builder
 public class ProfileResponse {
 
+
+    private long id;
     private String email;
     private String fullName;
     private String location;

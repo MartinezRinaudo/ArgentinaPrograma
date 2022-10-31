@@ -11,10 +11,12 @@ export class LanguagesComponent implements OnInit {
   languagesData : any;
   btnEdition : boolean;
   btnAdd : boolean;
+  id: number;
 
   constructor(private dataPortfolio:PortfolioService, private edition:EditionService) {
     this.btnEdition = this.edition.btnsEdition;
     this.btnAdd = this.edition.btnsAdd;
+    this.id = 0;
   }
 
   ngOnInit(): void {
@@ -33,14 +35,46 @@ export class LanguagesComponent implements OnInit {
   }
 
   saveChanges() {
-    /*SIN CONEXION CON EL BACKEND*/
+
+    let id = this.id;
     let name = (<HTMLInputElement>document.getElementById("name-language")).value;
     let level = (<HTMLInputElement>document.getElementById("level-language")).value;
     let newLanguage = {
-      "name":name, 
-      "level":level    
+      languages: [
+        {
+          "id": id,
+          "name":name, 
+          "level":level  
+        }
+      ]    
     }
-    this.languagesData.unshift(newLanguage);
-    this.btnAdd = false;
+
+    let language = JSON.stringify(newLanguage);
+    
+    this.dataPortfolio.editElement(1, "language", language)
+      .subscribe((response) => {
+        this.languagesData = response.languages
+      });  
+      this.btnAdd = false;
+      this.id = 0;
   }
+
+  editItem(event:any){
+    this.addItem(); 
+    this.id = event.target.id;
+
+    
+    console.log(this.id)
+    console.log(this.languagesData)
+    setTimeout(() => {    
+      let name = (<HTMLInputElement>document.getElementById("name-language"));
+      let level = (<HTMLInputElement>document.getElementById("level-language"));
+      for (let i = 0; i < this.languagesData.length; i++) {
+        if(this.languagesData[i].id == this.id){
+          name.value = (this.languagesData[i]).name;
+          level.value = (this.languagesData[i]).level;
+        }
+      }
+    }, 100);
+   }
 }

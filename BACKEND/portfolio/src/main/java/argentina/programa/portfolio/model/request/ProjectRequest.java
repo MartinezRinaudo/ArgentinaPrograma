@@ -9,6 +9,8 @@ import lombok.*;
 @Builder
 public class ProjectRequest {
 
+
+    private long id;
     private String name;
     private String place;
     private String spanishDescription;

@@ -10,6 +10,8 @@ import java.sql.Date;
 @Builder
 public class ExperienceRequest {
 
+
+    private long id;
     private String job;
     private String place;
     private Date startDate;

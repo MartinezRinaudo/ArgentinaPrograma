@@ -11,18 +11,17 @@ export class ProjectsComponent implements OnInit {
   projectsData : any;
   btnEdition : boolean;
   btnAdd : boolean;
-  id: any;
+  id: number;
 
-  constructor(private dataPortfolio:PortfolioService, private edition : EditionService) { 
+  constructor(private dataPortfolio:PortfolioService, private edition:EditionService) { 
     this.btnEdition = this.edition.btnsEdition;
     this.btnAdd = this.edition.btnsAdd;
-    this.id = null;
+    this.id = 0;
   }
 
   ngOnInit(): void {
     this.dataPortfolio.getData(1).subscribe(data => {
       this.projectsData = data.projects;
-      console.dir(this.projectsData)
     });
     this.btnEdition = this.edition.showBtnsEdition();
   }
@@ -31,65 +30,61 @@ export class ProjectsComponent implements OnInit {
     if(this.btnAdd == false) {     
       this.btnAdd = true;
     } else {
+
       this.btnAdd = false;
     }    
   }
 
   saveChanges() {
-    /*SIN CONEXION CON EL BACKEND*/
-    
+
+    let id = this.id;
     let name = (<HTMLInputElement>document.getElementById("name-project")).value;
     let place = (<HTMLInputElement>document.getElementById("place-project")).value;
     let englishDesc = (<HTMLInputElement>document.getElementById("english-description-project")).value;
     let spanishDesc = (<HTMLInputElement>document.getElementById("spanish-description-project")).value;
     
-    let idProject:number;
-    if(this.id == null) {
-      idProject = this.projectsData.length;
-    } else {
-      idProject = this.id;
-    }
+  
 
     let newProject = {
-      "id": idProject,
-      "name":name, 
-      "place":place, 
-      "descriptionEnglish":englishDesc,
-      "descriptionSpanish":spanishDesc
+      projects: [
+        {
+          "id": id,
+          "name":name, 
+          "place":place, 
+          "englishDescription":englishDesc,
+          "spanishDescription":spanishDesc
+        }
+      ]
     }
 
-    if(this.id == null) {
-      this.projectsData.unshift(newProject);
-    }else {
-      this.projectsData[idProject] = newProject
-    }
-
+    let project = JSON.stringify(newProject);
     
-    this.btnAdd = false;
-    this.id = null;
+    this.dataPortfolio.editElement(1, "project", project)
+      .subscribe((response) => {
+        this.projectsData = response.projects
+      });  
+      this.btnAdd = false;
+      this.id = 0;
   }
 
   editItem(event:any){
     this.addItem(); 
     this.id = event.target.id;
-
-    let name = (<HTMLInputElement>document.getElementById("data-list-project-name-" + this.id)).textContent;
-    let place = (<HTMLInputElement>document.getElementById("data-list-project-place-" + this.id)).textContent;
-    let englishDesc = (<HTMLInputElement>document.getElementById("data-list-project-description-en-" + this.id)).textContent;
-    let spanishDesc = (<HTMLInputElement>document.getElementById("data-list-project-description-es-" + this.id)).textContent;
-   
-    let information: string[];
-
-    if(name != null && place != null && englishDesc != null && spanishDesc != null){
-       information = [name, place, englishDesc, spanishDesc]
-    }
-    setTimeout(() =>{
-      let inputs = document.getElementsByTagName("input");
-
-      for (let i = 0; i < inputs.length; i++) {
-        inputs[i].value = information[i]
+    
+    setTimeout(() => {    
+      let name = (<HTMLInputElement>document.getElementById("name-project"));
+      let place = (<HTMLInputElement>document.getElementById("place-project"));
+      let englishDesc = (<HTMLInputElement>document.getElementById("english-description-project"));
+      let spanishDesc = (<HTMLInputElement>document.getElementById("spanish-description-project")); 
+      
+     for (let i = 0; i < this.projectsData.length; i++) {
+      if(this.projectsData[i].id == this.id){
+        name.value = (this.projectsData[i]).name;
+        place.value = (this.projectsData[i]).place;
+        englishDesc.value = (this.projectsData[i]).englishDescription;
+        spanishDesc.value = (this.projectsData[i]).spanishDescription;
       }
-    },100)
-  }
-
+     }
+    }, 100);
+   } 
 }

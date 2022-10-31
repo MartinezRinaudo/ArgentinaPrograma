@@ -5,7 +5,7 @@
     </div>
     <div class="card-body">
         <ul class="list-group" id="education">
-            <li class="list-group-item list-group-item-light" *ngFor="let edu of education">
+            <li class="list-group-item list-group-item-light" *ngFor="let edu of education" [id]="edu.id" >
                 <div class="data-container">
                     <div class="list-info-education">
                         <h4 id="data-list-education-name">{{edu.name}}</h4>
@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
-                    <div id="edit-btn-education"><i class="fa fa-pen me-md-2"></i></div>
+                    <div id="edit-btn-education"><i class="fa fa-pen me-md-2"  [id]="edu.id" (click)="editItem($event)"></i></div>
                     <div id="remove-btn-education"><i class="fa fa-trash"></i></div>
                 </div>
             </li>
@@ -29,7 +29,7 @@
                             <h6 id="data-list-education-start-date">Start date: <input type="date" placeholder="start date" id="start-date-education"></h6>
                             <h6 id="data-list-education-end-date">End date: <input type="date" placeholder="end date" id="end-date-education"></h6>
                             <button class="btn btn-secondary" (click)="saveChanges()">Save changes</button>
-                            <button class="btn btn-terciary" (click)="addItem()">Cancel</button>       
+                            <button class="btn btn-terciary"  (click)="addItem()">Cancel</button>       
                         </div>
                     </div>  
                 </div>

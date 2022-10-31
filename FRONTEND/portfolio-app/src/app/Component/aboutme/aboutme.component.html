@@ -2,11 +2,30 @@
     <div class="card-title"><h2>About me / Acerca de</h2></div>
     <div class="card-body">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngIf="btnEdition">
-            <div id="edit-btn-aboutme"><i class="fa fa-pen me-md-2"></i></div>
+            <div id="edit-btn-aboutme"><i class="fa fa-pen me-md-2"  [id]="aboutme.id" (click)="editItem($event)"></i></div>
             <div id="remove-btn-aboutme"><i class="fa fa-trash"></i></div>
         </div>
         <div id="text-aboutme">
             <p>{{aboutme.englishDescription}}<br><br>{{aboutme.spanishDescription}}</p>
         </div>
     </div>
+    <ul class="list-group" id="aboutme">
+        <li class="list-group-item list-group-item-light" id="addItem" *ngIf="btnAdd">
+            <div class="data-container">
+                <div class="list-info-project">
+                    <h5>Complete the about-me information:</h5>
+                    <br>
+                    <div class="project-details">
+                        <div id="data-list-project-description">
+                            <h6>English description: <input type="text" placeholder="english description" id="english-description-aboutme"></h6>
+                            <br>
+                            <h6>Spanish description: <input type="text" placeholder="spanish description" id="spanish-description-aboutme"></h6>
+                        </div>
+                        <button class="btn btn-secondary" (click)="saveChanges()">Save changes</button>
+                        <button class="btn btn-terciary" (click)="addItem()">Cancel</button>       
+                    </div>
+                </div>  
+            </div>
+        </li>
+    </ul>
 </div>

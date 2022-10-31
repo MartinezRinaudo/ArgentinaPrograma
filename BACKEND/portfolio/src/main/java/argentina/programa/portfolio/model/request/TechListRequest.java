@@ -11,7 +11,9 @@ import java.util.Set;
 @Builder
 public class TechListRequest {
 
+
+    private long id;
     private String category;
-    private Set<TechnologyRequest> technologyRequestSet;
+    private Set<TechnologyRequest> technologyList;
 
 }

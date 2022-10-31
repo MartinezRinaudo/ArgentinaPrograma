@@ -42,45 +42,54 @@ public class Profile {
     @Column(name = "image_url", length = 60, nullable = false)
     private String imageUrl;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name = "profile_contact",
             joinColumns = {@JoinColumn(name = "profile_id")},
             inverseJoinColumns = {@JoinColumn(name = "contact_information_id")})
     private Set<ContactInformation> contactInformation;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name = "profile_language",
             joinColumns = {@JoinColumn(name = "profile_id")},
             inverseJoinColumns = {@JoinColumn(name = "language_id")})
     private Set<Language> languages;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name = "profile_about",
             joinColumns = {@JoinColumn(name = "profile_id")},
             inverseJoinColumns = {@JoinColumn(name = "about_me_id")})
     private AboutMe aboutMe;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name = "profile_experience",
             joinColumns = {@JoinColumn(name = "profile_id")},
             inverseJoinColumns = {@JoinColumn(name = "experience_id")})
     private Set<Experience> experience;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name = "profile_education",
             joinColumns = {@JoinColumn(name = "profile_id")},
             inverseJoinColumns = {@JoinColumn(name = "education_id")})
     private Set<Education> education;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name = "profile_techs",
             joinColumns = {@JoinColumn(name = "profile_id")},
             inverseJoinColumns = {@JoinColumn(name = "technologies_list_id")})
     private Set<TechnologiesList> technologies;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, fetch = FetchType.EAGER)
     @JoinTable(name = "profile_project",
             joinColumns = {@JoinColumn(name = "profile_id")},
             inverseJoinColumns = {@JoinColumn(name = "project_id")})
     private Set<Project> projects;
+
+    public void addProject(Project project) {
+        projects.add(project);
+        //project.setProfile(this);
+    }
+    public void removeProject(Project project) {
+        projects.remove(project);
+        // project.setProfile(null);
+    }
 }

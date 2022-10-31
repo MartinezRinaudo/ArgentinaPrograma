@@ -9,6 +9,7 @@ import lombok.*;
 @Builder
 public class AboutMeResponse {
 
+    private long id;
     private String spanishDescription;
     private String englishDescription;
 }

@@ -11,6 +11,8 @@ import java.sql.Date;
 @Builder
 public class EducationResponse {
 
+
+    private long id;
     private String name;
     private String place;
     private Date startDate;
